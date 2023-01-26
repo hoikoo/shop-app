@@ -13,7 +13,7 @@
 
 
 
-
+<div class="field">
     <div class = "dataAllProd">
         {#each data.products as p}
 
@@ -32,7 +32,7 @@
         {/each}
     </div>
 
-
+</div>>
 
 
     <!-- searchbar element -->
@@ -48,9 +48,9 @@
     <!-- main top 3 products element -->
         <div class="container2">
 
-            <Product price = "39.66$" line = "This product is definitely good!" image = {productIMG} large = true ></Product>
-            <Product price = "40$" line = "This product is definitely not good!" image = {productIMG} large = true ></Product> 
-            <Product price = "41$" line = "This product is definitely bad!" image = {productIMG} large = true ></Product>
+            <Product price = "39.66$" line = "This product is definitely good!" image = {productIMG} large = {true} ></Product>
+            <Product price = "40$" line = "This product is definitely not good!" image = {productIMG} large = {true} ></Product> 
+            <Product price = "41$" line = "This product is definitely bad!" image = {productIMG} large = {true} ></Product>
 
         </div>
 
@@ -91,10 +91,10 @@
 
 .dataAllProd {
     display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr ; 
-    column-gap: 5%;
-    width: 70%;
+    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    column-gap: 2%;
+    justify-content: space-around ;
+    width: 90%;
 
     align-self: center;
     justify-self: center;
@@ -106,9 +106,9 @@
     display: grid;
     grid-template-rows: max-content 6fr max-content;
     vertical-align: top ; 
-    padding: 10px;
-
-
+    margin: 10px;
+    box-shadow: 10px 10px 2px rgb(239, 241, 241);
+    border-radius: 5px;
 
 }
 
@@ -140,8 +140,8 @@
 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border: #619b8a 3px solid;
-    border-bottom: hidden;
+    border: #619b8a 2px solid;
+    box-shadow: inset 0px 6px #b6d697 ;
 
 }
 
@@ -153,9 +153,9 @@
     text-align: center;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    border: #f17420 3px solid;
+    border: #eb6913 2px solid;
     font-weight: bold;
-
+    box-shadow: inset 0px 6px #ff954f ;
 
 }
 
@@ -165,16 +165,21 @@
     display: flex;
     justify-self: center;
     width: 100%;
+    box-shadow:inset 0px 0px 0px 1px rgb(223, 223, 223);
+    place-content: center;
+    
+    
 }
 
 .dataProdIMG {
     display: grid;
     flex-direction: column;
-    width: 100%;
-    align-self: center;
-    justify-self: center;
+    width: 90%;
+    height: 90%;
+    place-self: center;
     max-height: 300px;
     object-fit: contain;
+    
 
 }
 
@@ -207,11 +212,12 @@
 
 
 .field {
+    display: flex;
     padding: 10px;
     background-color: white ;
     border: 3px #43728f solid;
     border-radius: 5px;
-
+    place-content: center;
 }
 
 
@@ -224,7 +230,7 @@
     width: 90%;
     padding: 10px;
     background-color: #fe7f2d;
-    border: 3px #f17420 solid;
+    border: 3px #eb6913 solid;
     border-radius: 10px;
 
 }
