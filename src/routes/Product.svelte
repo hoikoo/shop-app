@@ -1,7 +1,7 @@
 <script lang="ts">
     export let image: string;
     export let line: string;
-    export let price: string;
+    export let price: number;
     export let large = false;
 </script>
     
@@ -16,7 +16,7 @@
         <img class ="dataProdIMG" src={image} alt = "img"/>
     </div>
 
-    <div class = "dataProdPrice">{price}</div>
+    <div class = "dataProdPrice">{price + "$"}</div>
 
 </div>
     
@@ -27,8 +27,7 @@
 .large {
     width: 90%;
     height: 100%;
-    /*aspect-ratio: 1/1;
-    max-height: 300px;*/
+    aspect-ratio: 1/1;
     place-self: center;
     
 }
@@ -69,8 +68,7 @@
     width: 90%;
     height: 90%;
     place-self: center;
-    /*max-height: 300px;*/
-    max-height: 100%;
+    max-height: 300px;
     object-fit: contain;
 
 }

@@ -22,55 +22,31 @@
     
     <div class="container2">
 
-        <Product price = "39.66$" line = "This product is definitely good!" image = {productIMG} large = {true} ></Product>
-        <Product price = "40$" line = "This product is definitely not good!" image = {productIMG} large = {true} ></Product> 
-        <Product price = "41$" line = "This product is definitely bad!" image = {productIMG} large = {true} ></Product>
+        <Product price = 39.66 line = "This product is definitely good!" image = {productIMG} large = {true} ></Product>
+        <Product price = 40 line = "This product is definitely not good!" image = {productIMG} large = {true} ></Product> 
+        <Product price = 41 line = "This product is definitely bad!" image = {productIMG} large = {true} ></Product>
 
     </div>
 
     <div class="container1">
 
-        <div class="couponBar"> DISCOUNT <span style="color:#e63946"> ! </span> 99.99% OFF<span style="color:#e63946">!!!</span> BUY 2 ITEMS BY THE PRICE OF 3 <span style="color:#e63946">!</span> </div>
+        <div class="couponBar"> DISCOUNT<span style="color:#e63946"> ! 99.99% OFF !!!</span> BUY 2 ITEMS BY THE PRICE OF 3 <span style="color:#e63946">!</span> </div>
 
     </div>
 
     <div class="main">
 
         <div class = "dataAllProd">
+
+
             {#each data.products as p}
 
-                <div class ="data1Prod">
+                <Product image={p.image} line={p.title} price={p.price}></Product>
 
-                    <div  class ="dataProdTitle">{p.title}</div>
-
-                    <div class ="dataContainProdIMG">
-                            <img class ="dataProdIMG" src={p.image} alt = "img"/>
-
-                    </div>
-
-                    <div class ="dataProdPrice" style ="">{p.price  + "$"}</div>
-
-                </div>
             {/each}
         </div>
 
     </div>
-
-
-
-
-    <!-- main top 3 products element 
-
-
-        <div class="container2">
-
-            <Product price = "39.66$" line = "This product is definitely good!" image = {productIMG}></Product>
-            <Product price = "40$" line = "This product is definitely not good!" image = {productIMG}></Product> 
-            <Product price = "41$" line = "This product is definitely bad!" image = {productIMG}></Product>
-
-        </div> -->
-           
-
 
 </div>
 
@@ -96,62 +72,6 @@
 
 }
 
-.data1Prod {
-    display: grid;
-    grid-template-rows: max-content 6fr max-content;
-    vertical-align: top ; 
-    margin: 10px;
-    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
-    border-radius: 5px;
-
-}
-
-.dataProdTitle {
-    overflow: hidden;
-    padding:10px;
-    background-color: #a8dadc;
-    color: #1d3557;
-    text-align: center;
-    border: #a8dadc 2px solid;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    box-shadow: inset 0px 6px rgb(255, 255, 255, 0.3) ;
-
-}
-
-.dataProdPrice {
-    padding:10px;
-    overflow: hidden;
-    background-color: #f54747;
-    color: #300505 ;
-    text-align: center;
-    font-weight: bold;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: #f54747 2px solid;
-    box-shadow: inset 0px 4px rgb(255, 255, 255, 0.3) ;
-
-}
-
-
-.dataContainProdIMG {
-    background-color: white;
-    display: flex;
-    width: 100%;
-    box-shadow:inset 0px 0px 0px 1px rgb(223, 223, 223);
-    place-content: center;
-    
-    
-}
-
-.dataProdIMG {
-    width: 90%;
-    height: 90%;
-    place-self: center;
-    max-height: 300px;
-    object-fit: contain;
-
-}
 
 .container1 {
     display: flex; 
