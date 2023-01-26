@@ -7,76 +7,88 @@
     
     
 <div
-    class="box"
+    class="data1Prod"
     class:large={large}
 > 
-         
-    <div class = "image"> <img style="width: 100% ; height: 100% ; object-fit: contain" src={image} alt="product image"> </div>
-    <div class = "line">
-        {line}
-        <div class="price">
-            {price}
-        </div>
+    <div class = "dataProdTitle">{line}</div>
+        
+    <div class ="dataContainProdIMG">
+        <img class ="dataProdIMG" src={image} alt = "img"/>
     </div>
-    
+
+    <div class = "dataProdPrice">{price}</div>
+
 </div>
     
     
     
     
 <style>
+.large {
+    width: 90%;
+    height: 100%;
+    /*aspect-ratio: 1/1;
+    max-height: 300px;*/
+    place-self: center;
     
-    .box {
-        display: flex;
-        flex-direction: column;
-        width: 95%;
-        align-self: center;
-        justify-self: center;
-    }
+}
     
-    .large {
-        width: 90%;
-        height: 100%;
+.data1Prod {
+    display: grid;
+    grid-template-rows: max-content 6fr max-content;
+    vertical-align: top ; 
+    margin: 10px;
+    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
+    border-radius: 5px;
+
+}
+
+.dataProdTitle {
+    overflow: hidden;
+    padding:10px;
+    background-color: #a8dadc;
+    color: #1d3557;
+    text-align: center;
+    border: #a8dadc 2px solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: inset 0px 6px rgb(255, 255, 255, 0.3) ;
+
+}
+
+.dataContainProdIMG {
+    place-content: center;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    box-shadow:inset 0px 0px 0px 1px rgb(223, 223, 223);
+    
+}
+
+.dataProdIMG {
+    width: 90%;
+    height: 90%;
+    place-self: center;
+    /*max-height: 300px;*/
+    max-height: 100%;
+    object-fit: contain;
+
+}
 
 
-    }
+.dataProdPrice {
+    padding:10px;
+    overflow: hidden;
+    background-color: #f54747;
+    color: #300505 ;
+    text-align: center;
+    font-weight: bold;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: #f54747 2px solid;
+    box-shadow: inset 0px 4px rgb(255, 255, 255, 0.3) ;
 
-    .image {
-        justify-content: center ;
-        align-items: center ;
-        display: flex;
-        width: 100;
-        height: 100%;
-        padding: 2px;
-        background-color: rgb(255, 255, 255);
-        border: 2px rgb(231, 231, 231) solid;
-        border-bottom: hidden;
+}
 
-    }
-    
-    .line {
-        justify-content: center ;
-        align-items: center ;
-        display: grid;     
-        grid-template-columns: 6fr 1fr; 
-        gap: 12px;   
-        color: #303053;   
-        text-align: center;     
-        background-color: #a1c181 ;
-        border: 2px #619b8a solid;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-    
-    }
-    
-    .price {
-        padding: 10px;
-        background-color: #ffffff;
-        border-bottom-right-radius: 5px;
-        color:  #fe7f2d;
-        text-align: center;
-        font-weight: bold;
-
-    }
 
 </style>

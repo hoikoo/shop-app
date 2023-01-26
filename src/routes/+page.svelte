@@ -19,6 +19,20 @@
         </div>
 
     </div>
+    
+    <div class="container2">
+
+        <Product price = "39.66$" line = "This product is definitely good!" image = {productIMG} large = {true} ></Product>
+        <Product price = "40$" line = "This product is definitely not good!" image = {productIMG} large = {true} ></Product> 
+        <Product price = "41$" line = "This product is definitely bad!" image = {productIMG} large = {true} ></Product>
+
+    </div>
+
+    <div class="container1">
+
+        <div class="couponBar"> DISCOUNT <span style="color:#e63946"> ! </span> 99.99% OFF<span style="color:#e63946">!!!</span> BUY 2 ITEMS BY THE PRICE OF 3 <span style="color:#e63946">!</span> </div>
+
+    </div>
 
     <div class="main">
 
@@ -45,15 +59,17 @@
 
 
 
-    <!-- main top 3 products element -->
+    <!-- main top 3 products element 
+
+
         <div class="container2">
 
-            <Product price = "39.66$" line = "This product is definitely good!" image = {productIMG} large = {true} ></Product>
-            <Product price = "40$" line = "This product is definitely not good!" image = {productIMG} large = {true} ></Product> 
-            <Product price = "41$" line = "This product is definitely bad!" image = {productIMG} large = {true} ></Product>
+            <Product price = "39.66$" line = "This product is definitely good!" image = {productIMG}></Product>
+            <Product price = "40$" line = "This product is definitely not good!" image = {productIMG}></Product> 
+            <Product price = "41$" line = "This product is definitely bad!" image = {productIMG}></Product>
 
-        </div>
-
+        </div> -->
+           
 
 
 </div>
@@ -90,26 +106,6 @@
 
 }
 
-/*.data1Prod {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding:10px;
-}*/
-
-/*.dataProd {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    align-self: center;
-    justify-content: center;
-    background-color: hotpink;
-
-}*/
-
 .dataProdTitle {
     overflow: hidden;
     padding:10px;
@@ -124,11 +120,10 @@
 }
 
 .dataProdPrice {
-  
     padding:10px;
     overflow: hidden;
     background-color: #f54747;
-    color: rgb(43, 2, 2) ;
+    color: #300505 ;
     text-align: center;
     font-weight: bold;
     border-bottom-left-radius: 5px;
@@ -166,13 +161,15 @@
 
 .container2 {
     display: grid;
-    grid-template-columns: 15px 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr; 
     gap: 12px;
+    place-items: center;
+    margin: 4%;
     
 } 
 
 
-.container1 div, .container2  {
+.container1 div, .container2 {
     padding: 10px;    
 
 } 
@@ -184,9 +181,10 @@
     place-content: center;
     width: 90%;
     padding: 4%;
-    background-color: white ;
+    background-color: 1d3557 ;
     border: 2px rgb(218, 218, 218) solid;
     border-radius: 3px;
+    border: hidden;
     
 }
 
@@ -200,6 +198,7 @@
     background-color: #e63946;
     border: 2px rgb(199, 24, 39) solid;
     border-radius: 8px;
+    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
 
 }
 
@@ -210,7 +209,7 @@
     color: rgb(199, 24, 39, 0.5);
     border-radius: 8px;
 
-}
+} 
 
 .othersBar {
     flex:10;
@@ -218,6 +217,22 @@
 
 }
 
+.couponBar {
+    display: flex;
+    place-content: center ;
+    align-items: center;
+    width: 90%;
+    min-height: 30px;;
+    color: #1e5670;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    background-color: #a8dadc;
+    border: 2px #7cadc4 solid;
+    border-radius: 8px;
+    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
+
+}
 
 :global(body) {
       background-color: #1d3557 ;
