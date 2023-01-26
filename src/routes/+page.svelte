@@ -91,11 +91,11 @@
 
 .dataAllProd {
     display: grid;
-    overflow: hidden;
+
     grid-template-columns: 1fr 1fr 1fr ; 
     column-gap: 5%;
     width: 70%;
-    overflow: hidden;
+
     align-self: center;
     justify-self: center;
     
@@ -107,7 +107,7 @@
     grid-template-rows: max-content 6fr max-content;
     vertical-align: top ; 
     padding: 10px;
-    justify-content: center;
+
 
 
 }
@@ -165,7 +165,7 @@
     background-color: white;
     display: flex;
     justify-self: center;
-
+    width: 100%;
 }
 
 .dataProdIMG {
@@ -175,7 +175,7 @@
     align-self: center;
     justify-self: center;
     max-height: 300px;
-
+    object-fit: contain;
 
 }
 
