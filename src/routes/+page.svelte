@@ -135,7 +135,6 @@
 .dataProdTitle {
     background-color: #a1c181;
     padding:10px;
-    max-height: 15px;
     overflow: hidden;
     text-align: center;
 
