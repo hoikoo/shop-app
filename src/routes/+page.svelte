@@ -1,15 +1,38 @@
 <script lang="ts">
-    import Product from "./Product.svelte";
+    import ProductS from "./ProductS.svelte";
+    import Bar from "./Bar.svelte";
     import productIMG from './img/throusers.png';
 	import type { PageData } from "./$types";
+	import type { Product } from "./+page.server";
 
     export let data: PageData
+    let highlightProdduct: Array<Product> = [] ;
+    let restProdduct: Array<Product> = [] ;
     
+
+    for ( let i = 0; i < data.products.length ; i++ ) {
+        if (i >= 3) {
+            restProdduct.push( data.products[i] ) ;
+        } else {
+
+        highlightProdduct.push( data.products[i] )  ;
+        }
+
+    } 
+
 </script>
  
 
 
 <div class="globalContainer">
+
+    <div class="container1">
+        <Bar blueTrue = {true} text = "YEXT TEXT TEXET TEXE" logoTrue = {true}></Bar>
+    </div>
+
+    <div class="container1">
+        <Bar redTrue = {true} text = "TEXT TEXTE TEXT TEXT"></Bar>
+    </div>
 
     <div class="container1">
 
@@ -22,9 +45,10 @@
     
     <div class="container2">
 
-        <Product price = 39.66 line = "This product is definitely good!" image = {productIMG} large = {true} ></Product>
-        <Product price = 40 line = "This product is definitely not good!" image = {productIMG} large = {true} ></Product> 
-        <Product price = 41 line = "This product is definitely bad!" image = {productIMG} large = {true} ></Product>
+
+        {#each highlightProdduct as p}
+            <ProductS image={p.image} line={p.title} price={p.price}></ProductS>
+        {/each}
 
     </div>
 
@@ -39,9 +63,9 @@
         <div class = "dataAllProd">
 
 
-            {#each data.products as p}
+            {#each restProdduct as p}
 
-                <Product image={p.image} line={p.title} price={p.price}></Product>
+                <ProductS image={p.image} line={p.title} price={p.price}></ProductS>
 
             {/each}
         </div>

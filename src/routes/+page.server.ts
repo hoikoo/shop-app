@@ -5,7 +5,7 @@ interface Rating {
     count: number;
 }
 
-interface Product {
+export interface Product {
     id: number;
     title: string;
     price: number;
