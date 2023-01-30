@@ -2,14 +2,10 @@
     export let image: string;
     export let line: string;
     export let price: number;
-    export let large = false;
 </script>
     
     
-<div
-    class="data1Prod"
-    class:large={large}
-> 
+<div class="data1Prod"> 
     <div class = "dataProdTitle">{line}</div>
         
     <div class ="dataContainProdIMG">
@@ -24,13 +20,6 @@
     
     
 <style>
-.large {
-    width: 90%;
-    height: 100%;
-    aspect-ratio: 1/1;
-    place-self: center;
-    
-}
     
 .data1Prod {
     display: grid;

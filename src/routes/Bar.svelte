@@ -1,32 +1,58 @@
 <script lang="ts">
 
-    export let redTrue = false;
+    export let redTrue = false; 
     export let blueTrue = false;
     export let logoTrue = false;
+    export let serachTrue = false;
+    export let cartTrue = false;
+    export let text: string;
 
     import logo from './img/logo.png';
-    export let text: string;
+    import cartIMG from './img/cart.png';
 
 </script>
 
-
-    <div class ="header" 
+<div class ="header" 
     class:redTrue = {redTrue}
     class:blueTrue = {blueTrue}
-    >
-        {#if logoTrue}
-            <div class = "logoContainer">
-                <img class="logoIMG" src={logo} alt="img">
-            </div>
-        {/if}
-        {text}
-        
+>
 
+    {#if logoTrue}
+        <div class = "iMGContainer">
+            <img class="iMG" src={logo} alt="img">
+        </div>
+    {/if}
+            
+    <div class ="emptyText">{text}</div>   
+        
+    {#if cartTrue}
+        <div class = "iMGContainer">
+            <img class="iMG" src={cartIMG} alt="img">
+
+        </div>
+    {/if}
+
+    {#if serachTrue}
+        <div class = "searchBar"> Search</div>
+
+    {/if}
 
 </div>
 
 
 <style>
+
+.header {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px;
+    width: 90%;
+    height: 40px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
+
+}
 
 .redTrue{
     background-color: #e63946;
@@ -42,44 +68,40 @@
 
 }
 
-.logoContainer {
-
-    display: flex;
-    height: 100%;
-    flex: 10;
-
-}
-
-.logoIMG {
-
-    height: 100%;
+.iMGContainer {
+    display: flex;      
+    justify-content: center;
+    flex: 10;  
+    margin: 10px;
+    height: 100%;  
+    max-width: 50px;
 
 }
 
+.iMG {
+    height: 100%;
 
+}
 
+.searchBar {
+    flex:1;
+    padding: 10px;   
+    width: 100%;
+    max-width: 150px; 
+    background-color: rgb(255, 255, 255 , 0.3);
+    font-family:monospace ;
+    color: rgba(100, 13, 13, 0.2);
+    border-radius: 8px;
 
-.header {
-    display: flex;
-    justify-content: center;  
-    align-items: center;
+} 
 
-    overflow: hidden;
-
-    width: 90%;
-    min-height: 30px;
-    max-height: 40px;
-
-    padding: 10px;
-
+.emptyText {
+    flex:8;
     font-weight: bold;
     font-size: large;
     text-align: center;
 
-    border-radius: 8px;
-
-    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
-
 }
+
 
 </style>
