@@ -19,15 +19,6 @@
     } 
 
 </script>
- 
-
-
-<div class="globalContainer">
-
-    <div class="container1">
-        <Bar redTrue = {true} text = "" serachTrue = {true} logoTrue = {true}  cartTrue = {true}></Bar>
-    </div>
-    
     <div class="container2">
         {#each highlightProdduct as p}
             <ProductS image={p.image} line={p.title} price={p.price}></ProductS>
@@ -50,21 +41,7 @@
 
     </div>
 
-    
-</div>
-
-
-
 <style>
-
-.globalContainer {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
-    padding: 10px; 
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-}
 
 .dataAllProd {
     display: grid;
@@ -97,15 +74,11 @@
 
 .main {
     display: flex;
+    place-self: center;
     place-content: center;
     width: 90%;
     padding: 4%;
     
-}
-
-:global(body) {
-      background-color: #1d3557 ;
-
 }
 
 </style>
