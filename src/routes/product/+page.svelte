@@ -1,7 +1,6 @@
 <script lang="ts">
     import Bar from "../Bar.svelte";
-    import ImageP from "./ImageP.svelte";
-    import DescriptionP from "./DescriptionP.svelte";
+
 
 </script>
 

@@ -8,7 +8,7 @@
     let highlightProdduct: Array<Product> = [] ;
     let restProdduct: Array<Product> = [] ;
     
-
+        
     for ( let i = 0; i < data.products.length ; i++ ) {
         if (i >= 3) {
             restProdduct.push( data.products[i] ) ;
@@ -19,13 +19,15 @@
     } 
 
 </script>
+
     <div class="container2">
         {#each highlightProdduct as p}
             <ProductS image={p.image} line={p.title} price={p.price}></ProductS>
+        
         {/each}
 
     </div>
-
+    
     <div class="container1">
         <Bar blueTrue = {true} text = "BUY NOW AND GET FREE SHIPPING" ></Bar>
     </div>
