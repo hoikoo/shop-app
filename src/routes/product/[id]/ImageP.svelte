@@ -30,8 +30,7 @@
     background-color: white;
     display: flex;
     width: 100%;
-    box-shadow:inset 0px 0px 0px 1px rgb(223, 223, 223);
-
+    box-shadow:inset 0px 0px 0px 2px rgb(228, 228, 228);
 
 }
 

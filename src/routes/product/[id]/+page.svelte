@@ -18,29 +18,14 @@
 
     <div class = "container1">
     <ImageP prodIMG={data.products.image}></ImageP>
-    <DescriptionP title={data.products.title} price={data.products.price} description={data.products.description} rate={data.products.rate}></DescriptionP>
+    <DescriptionP title={data.products.title} price={data.products.price} description={data.products.description} rate={data.products.rating.rate} category={data.products.category}></DescriptionP>
     </div>
 
 
 
 
 
-IDID:
-{data.products.id}-------
-DESCRIPTION:
-{data.products.description}-------
-PRICE:
-{data.products.price}--------
-TITLE:
-{data.products.title}-------------------
 
-
-
-    id:{data.productId}
-    get products: {data.products}
-
-    data from server: {data.productId} 
-    data from client:{$page.params.id}
 
 
 </div>
