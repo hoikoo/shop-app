@@ -27,7 +27,7 @@
         
     {#if cartTrue}
         <div class = "iMGContainer">
-            <img class="iMG" src={cartIMG} alt="img">
+            <img class="iMG" style="cursor: pointer" src={cartIMG} alt="img">
 
         </div>
     {/if}
@@ -92,6 +92,8 @@
     font-family:monospace ;
     color: rgba(100, 13, 13, 0.2);
     border-radius: 8px;
+    cursor: pointer;
+
 
 } 
 

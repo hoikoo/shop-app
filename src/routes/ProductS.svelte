@@ -2,20 +2,37 @@
     export let image: string;
     export let line: string;
     export let price: number;
+    export let id: number;
+
+
+
+
+
+
+
+
+    function moveToPage() {
+        return alert("moved to page")
+
+
+    }
+
+
+
 </script>
     
-    
-<div class="data1Prod"> 
-    <div class = "dataProdTitle">{line}</div>
+<a href={"/product/" + id} style="background-color: hotpink; height: 10px" > </a>
+    <div class="data1Prod" > 
+        <div class = "dataProdTitle">{line}</div>
         
-    <div class ="dataContainProdIMG">
-        <img class ="dataProdIMG" src={image} alt = "img"/>
+        <div class ="dataContainProdIMG">
+            <img class ="dataProdIMG" src={image} alt = "img"/>
+        </div>
+
+        <div class = "dataProdPrice">{price + "$"}</div>
+ 
     </div>
-
-    <div class = "dataProdPrice">{price + "$"}</div>
-
-</div>
-    
+      
     
     
     
@@ -28,7 +45,7 @@
     margin: 10px;
     box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
     border-radius: 5px;
-
+    cursor: pointer;
 }
 
 .dataProdTitle {

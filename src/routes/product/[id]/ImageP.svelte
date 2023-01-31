@@ -1,5 +1,19 @@
 <script lang="ts">
+	import { once } from "svelte/internal";
+
     export let prodIMG: string;
+
+
+
+    function addToCart() {
+        return alert("Item has been added to cart");
+    }
+    function hover() {
+        return alert("Item");
+    }
+    
+
+
 
 </script>
 
@@ -7,7 +21,8 @@
     <div class="containIMG">
         <img class = "iMG" src = {prodIMG} alt = "img"/>
     </div>
-    <div class = "addCart">ADD TO CART</div>
+    <div class = "addCart" on:click={ () => addToCart()} >ADD TO CART</div>
+    <!-- <button style="padding: 20px; cursor: pointer"  >TESTESTESTETSET</button> -->
 
     
 </div>
@@ -54,9 +69,15 @@
     border-bottom-right-radius: 5px;
     border: #f54747 2px solid;
     box-shadow: inset 0px 4px rgb(255, 255, 255, 0.3) ;
-
+    cursor: pointer;
 
 }
-
+.addCart:hover {
+    background-color: hotpink;
+}
     
+    
+.addCart:active {
+    background-color: aqua;
+}
 </style>

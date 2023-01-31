@@ -1,10 +1,11 @@
 <script lang="ts">
     import ProductS from "./ProductS.svelte";
     import Bar from "./Bar.svelte";
-	import type { PageData } from "./$types";
+	import type { PageData } from "./$types"; /// same name - cannot rename in $types
 	import type { Product } from "./+page.server";
 
     export let data: PageData
+
     let highlightProdduct: Array<Product> = [] ;
     let restProdduct: Array<Product> = [] ;
     
@@ -18,11 +19,12 @@
 
     } 
 
+
 </script>
 
     <div class="container2">
         {#each highlightProdduct as p}
-            <ProductS image={p.image} line={p.title} price={p.price}></ProductS>
+            <ProductS image={p.image} line={p.title} price={p.price} id={p.id}></ProductS>
         
         {/each}
 
@@ -35,7 +37,7 @@
     <div class="main">
         <div class = "dataAllProd">
             {#each restProdduct as p}
-                <ProductS image={p.image} line={p.title} price={p.price}></ProductS>
+                <ProductS image={p.image} line={p.title} price={p.price} id={p.id}></ProductS>
 
             {/each}
 
