@@ -1,9 +1,27 @@
 <script lang="ts">
+	import { error } from "@sveltejs/kit";
+import type { ActionData } from "./$types";
+
+
+
+export let form: ActionData;
 
 
 </script>
 
+
+{form?.error} 
 <div class = "application">
+
+
+    {#if form?.error==true} 
+    <p class = "p" style="place-self: center ;  color:red">Please fill in all entries</p>
+    {/if}
+
+    {#if form?.error==false  } 
+    <p class = "p" style="place-self: center ;  color:green">New account created!</p>
+    {/if}
+
     <form method="post">
 
         <div class = "bar" > 
