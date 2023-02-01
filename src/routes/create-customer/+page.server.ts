@@ -1,4 +1,5 @@
 import type { Customer } from "@prisma/client";
+import { prisma } from "../../lib/db";
 import type { Actions } from "./$types";
 
 function getFormValue(data: FormData, key: string): string | null {
@@ -18,12 +19,18 @@ export const actions: Actions = {
 
 
 
-        if (name==null || name.length<2 || surname==null|| surname.length<2 || adress==null || adress.length<2  || postcode==null|| postcode.length<2  || city==null || city.length<2 || email==null || email.length<5 || password==null || password.length<5) {
+        if (name==null || name.length<2 || surname==null|| surname.length<2 || adress==null || adress.length<3  || postcode==null|| postcode.length<3  || city==null || city.length<3 || email==null || email.length<8 || password==null || password.length<8) {
+            /////////////////// removing those sticks results into creating NULL data >:C
             
 
+            // if(name!==null && name.length<2){
+            //     console.log("Name error");
+            //     return {nameError:true}
+            // }
             console.log("error");
             return {error:true}
-        } else {
+
+        }
             console.log(name);
             console.log(surname);
             console.log(city);        
@@ -31,24 +38,38 @@ export const actions: Actions = {
             console.log(adress);
             console.log(email);
             console.log(password);
-            return {error:false}
-        };
+
         ////////////////////// program notices that you can pass null that can be .length more than 2, thus kinda passing validation ??
         // customer:
-        const newCustomer: Customer = { 
-            name:name , 
-            surname:surname ,
-            adress:adress,              
-            postCode:Number(postcode), 
-            city:city, 
-            email:email , 
-            password:password 
-        
-        }
+
+        await prisma.customer.create ({
+
+            data : {
+                name:name , 
+                surname:surname ,
+                adress:adress,              
+                postCode:Number(postcode), 
+                city:city, 
+                email:email , 
+                password:password 
+
+            }
+
+        })
+        const c = await prisma.customer.findMany()
+        const p =  await prisma.product.findMany() 
+        // await prisma.product.create({
+        //     data: {
+        //         category: 'Milk & Dairy',
+        //         price: 2,
+        //         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Oat_milk_glass_and_bottles.jpg/320px-Oat_milk_glass_and_bottles.jpg",
+        //         title: 'Very Nice Milk',
+        //     }
+        // })  
+        console.log(p);
+        console.log(c);
 
 
-
-        console.log(newCustomer)
 
 
     }

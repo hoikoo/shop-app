@@ -15,7 +15,7 @@ model Customer {
   postCode Int
   city     String
   email    String  @unique
-  password String  @unique
+  password String
 
   CartItem CartItem[]
 }

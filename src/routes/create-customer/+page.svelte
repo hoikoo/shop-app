@@ -10,7 +10,7 @@ export let form: ActionData;
 </script>
 
 
-{form?.error} 
+error: {form?.error} 
 <div class = "application">
 
 
