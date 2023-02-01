@@ -24,7 +24,7 @@
 
     <div class="container2">
         {#each highlightProdduct as p}
-            <ProductS image={p.image} line={p.title} price={p.price} id={p.id}></ProductS>
+            <ProductS product = {p}></ProductS>
         
         {/each}
 
@@ -37,7 +37,7 @@
     <div class="main">
         <div class = "dataAllProd">
             {#each restProdduct as p}
-                <ProductS image={p.image} line={p.title} price={p.price} id={p.id}></ProductS>
+                <ProductS product = {p}></ProductS>
 
             {/each}
 

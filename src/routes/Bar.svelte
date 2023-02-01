@@ -19,7 +19,9 @@
 
     {#if logoTrue}
         <div class = "iMGContainer">
-            <img class="iMG" src={logo} alt="img">
+            <a href="../">
+                <img class="iMG" src={logo} alt="img">
+            </a>
         </div>
     {/if}
             
@@ -27,8 +29,9 @@
         
     {#if cartTrue}
         <div class = "iMGContainer">
-            <img class="iMG" style="cursor: pointer" src={cartIMG} alt="img">
-
+            <a href="../"> 
+                <img class="iMG"  src={cartIMG} alt="img">
+            </a>
         </div>
     {/if}
 
@@ -102,6 +105,20 @@
     font-weight: bold;
     font-size: large;
     text-align: center;
+
+}
+
+iMG:hover {
+    cursor: pointer;
+    opacity:0.4;
+    
+
+}
+
+iMG:active {
+    box-shadow: inset 4px 4px 0 20px rgb(48, 5, 5, 0.2);
+
+    border-radius: 4px;
 
 }
 

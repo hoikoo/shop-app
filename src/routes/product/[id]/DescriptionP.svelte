@@ -3,7 +3,7 @@
     export let price: number;
     export let rate: number;
     export let description: string;
-    export let category: string;
+    // export let category: string;
 </script>
 
 <div class="container"> 
@@ -13,10 +13,10 @@
         <div class="rate">{"Rating " + rate + "★"}</div>
     </div>
     <div class = "description">
-        <div>Description: </div>
+        <!-- <div>Description: </div> -->
         {description}
     </div>
-    <div class = "category">{"Category: " + category}</div>
+    <!-- <div class = "category">{"Category: " + category}</div> -->
 </div>
 
 
@@ -25,14 +25,21 @@
 <style>
 
 .container {
-    display: grid;
-    grid-template-rows:max-content max-content 6fr max-content;
-    vertical-align: top ; 
+    display: grid;    
+
+    grid-template-rows:max-content max-content 6fr;
+    vertical-align: top ;     
+    height: 100%; 
+    aspect-ratio: 1/1;
+    max-height: 550px;    
+    overflow: hidden;
     margin: 10px;
     font-size: large;
     background-color: white;
     box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
-    border-radius: 5px;;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
 
 }
 
@@ -80,7 +87,7 @@
 
 }
 
-.category {
+/* .category {
     overflow: hidden;
     padding: 10px;
     background-color: #a8dadc ;
@@ -92,7 +99,7 @@
     border-bottom-right-radius: 5px;
     box-shadow: inset 0px 4px rgb(255, 255, 255, 0.3) ;
     
-}
+} */
 
 
 </style>
