@@ -2,7 +2,8 @@
     import ProductS from "./ProductS.svelte";
     import Bar from "./Bar.svelte";
 	import type { PageData } from "./$types"; /// same name - cannot rename in $types
-	import type { Product } from "./+page.server";
+	// import type { ProductI } from "./+page.server";
+    import type { Product } from "@prisma/client";
 
     export let data: PageData
 
@@ -14,11 +15,13 @@
         if (i >= 3) {
             restProdduct.push( data.products[i] ) ;
         } else {
-        highlightProdduct.push( data.products[i] )  ;
+            highlightProdduct.push( data.products[i] )  ;
         }
 
     } 
 
+
+console.log(highlightProdduct, "---------IT DOES FETCH IS IS RIGHT ?????????---------");
 
 </script>
 

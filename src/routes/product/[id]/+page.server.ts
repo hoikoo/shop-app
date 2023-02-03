@@ -1,12 +1,13 @@
 import type { PageServerLoad } from "./$types";
-
+import type { Product } from "@prisma/client";
+import { prisma } from "../../../lib/db";
 
 interface Rating {
     rate: number;
     count: number;
 }
 
-export interface Product {
+export interface ProductI {
     id: number;
     title: string;
     price: number;
@@ -27,8 +28,11 @@ export const load: PageServerLoad = async (event) => {
     return {
         productId: event.params.id, 
 
-        products: fetch('https://fakestoreapi.com/products/'+ event.params.id) 
-        .then(res=>res.json() as unknown as Product)
+        products: await prisma.product.findUnique({
+            where: {
+              id: parseInt(event.params.id)
+            },
+        })
 
     };
 };

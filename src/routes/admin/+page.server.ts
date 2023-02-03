@@ -1,7 +1,7 @@
 import { prisma } from "$lib/db";
-import { type Product } from "@prisma/client";
+import  type  { Product } from "@prisma/client";
 import { Decimal } from "@prisma/client/runtime";
-import type { Product as ProductAPI } from "../+page.server";
+import type { ProductI as ProductAPI } from "../+page.server";
 import type { Actions } from "./$types";
 
 export const actions: Actions = {
@@ -18,9 +18,9 @@ export const actions: Actions = {
                 title: productsAPI[i].title,
                 category: productsAPI[i].category,
                 image: productsAPI[i].image, 
-                price: new Decimal(productsAPI[i].price),
+                price: productsAPI[i].price,
                 description: productsAPI[i].description,
-                rating: new Decimal(productsAPI[i].rating.rate)
+                rating: productsAPI[i].rating.rate
                 
 
 

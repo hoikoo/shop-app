@@ -5,20 +5,28 @@
     import DescriptionP from "./DescriptionP.svelte";
 
 	import { dataset_dev } from "svelte/internal";
-	import type { Product } from "./+page.server";
+	import type { ProductI } from "./+page.server";
     import type { productGetId } from "./+page.server"; /// gets id from server ?
 
+
+
+    
     export let data: PageData
     export const productCart = data.productId;
+    let rateNotNull = false;
+    if(data.products !== null  && data.products.rating !== null && data.products.rating !== null) {
+        rateNotNull = true
+    }
+
 
 </script>
 
-
+    {#if data.products !== null}
     <div class = "container1">
     <ImageP prodIMG={data.products.image} ></ImageP>
-    <DescriptionP title={data.products.title} price={data.products.price} description={data.products.description} rate={data.products.rating.rate}></DescriptionP>
+    <DescriptionP title={data.products.title} price={data.products.price} description={data.products.description} rate={data.products.rating} rateNotNull={rateNotNull}></DescriptionP>
     </div>
-
+    {/if}
 
 <style>
 

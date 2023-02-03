@@ -25,8 +25,8 @@ model Product {
   title    String
   category String
   description String @default("")
-  rating    Decimal? 
-  price    Decimal
+  rating    Float? 
+  price    Float
   image    String
 
   CartItem CartItem[]

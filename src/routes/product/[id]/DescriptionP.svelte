@@ -1,7 +1,8 @@
 <script lang="ts">
     export let title: string;
     export let price: number;
-    export let rate: number;
+    export let rate = 0;
+    export let rateNotNull = false;
     export let description: string;
     // export let category: string;
 </script>
@@ -10,7 +11,13 @@
     <div class="title">{title}</div>
     <div class = "priceRateContain">
         <div class="price">{price + "$"}</div>
-        <div class="rate">{"Rating " + rate + "★"}</div>
+        <div class="rate">
+            {#if rateNotNull}
+                {"Rating " + rate + "★"}
+            {:else}
+                {"No rating ★"}
+            {/if}
+        </div>
     </div>
     <div class = "description">
         <!-- <div>Description: </div> -->

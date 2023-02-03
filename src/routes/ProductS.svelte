@@ -1,17 +1,11 @@
 <script lang="ts">
-	import type { Product } from "./proxy+page.server";
+	 import type { ProductI } from "./proxy+page.server";
+    // import type { Product } from "@prisma/client";
 
 
 
-    export let product: Pick<Product, "id" | "title" | "image" | "price" >;
+    export let product: Pick<ProductI, "id" | "title" | "image" | "price" >;
  
-
-    function moveToPage() {
-        return alert("moved to page")
-
-
-    }
-
 
 
 </script>
