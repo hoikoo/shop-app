@@ -1,27 +1,61 @@
 <script lang="ts">
-	import { once } from "svelte/internal";
+	import { page } from "$app/stores";
 
+
+    
+    
+    
     export let prodIMG: string;
 
 
 
-    function addToCart() {
-        return alert("Item has been added to cart");
+
+    function checkUser() {
+        if ($page.data.user !== null) {
+
+            addToCart()
+
+        } else {
+
+            goLogIn()
+
+        }
     }
+
+    function addToCart() {
+
+        window.location.href='/cart';
+    }
+
+    function goLogIn() {
+
+        window.location.href='/login-customer';
+    }
+
     function hover() {
         return alert("Item");
     }
+
     
-
-
+    
 
 </script>
 
+
+<!-- {#if $page.data.user !== null}
+ hllo world
+{/if} -->
+
+
+
+
 <div class="container"> 
+
+
     <div class="containIMG">
         <img class = "iMG" src = {prodIMG} alt = "img"/>
     </div>
-    <button class = "addCart"  on:click={ () => addToCart()}>ADD TO CART</button>
+    <button class = "addCart"  on:click={ () => checkUser()}>ADD TO CART</button>
 
     
 </div>

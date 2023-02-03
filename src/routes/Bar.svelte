@@ -6,9 +6,16 @@
     export let serachTrue = false;
     export let cartTrue = false;
     export let text: string;
+    export let checkUser = false;
+    export let userActive = false;
 
     import logo from './img/logo.png';
     import cartIMG from './img/cart.png';
+    import user from './img/user.png';
+	import { dataset_dev } from 'svelte/internal';
+
+
+
 
 </script>
 
@@ -27,9 +34,33 @@
             
     <div class ="emptyText">{text}</div>   
         
+
+    {#if checkUser}
+
+        {#if userActive}
+            
+        
+        <div class = "iMGContainer">
+            <a href="../profile/me"> 
+                <img class="iMG"  src={user} alt="img">
+            </a>
+        </div>
+
+        {:else}
+
+        <div class = "iMGContainer">
+            <a href="../create-customer"> 
+                <img class="iMG" style="opacity: 0.2;"  src={user} alt="img">
+            </a>
+        </div>
+
+        {/if}
+
+    {/if}
+
     {#if cartTrue}
         <div class = "iMGContainer">
-            <a href="../"> 
+            <a href="../cart"> 
                 <img class="iMG"  src={cartIMG} alt="img">
             </a>
         </div>

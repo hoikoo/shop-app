@@ -19,7 +19,7 @@ export const actions: Actions = {
 
 
 
-        if (name==null || name.length<2 || surname==null|| surname.length<2 || adress==null || adress.length<3  || postcode==null|| postcode.length<3  || city==null || city.length<3 || email==null || email.length<8 || password==null || password.length<8) {
+        if (name==null || name.length<2 || surname==null|| surname.length<2 || adress==null || adress.length<2  || postcode==null|| postcode.length<2  || city==null || city.length<2 || email==null || email.length<2 || password==null || password.length<2) {
             /////////////////// removing those sticks results into creating NULL data >:C
             
 
@@ -39,25 +39,47 @@ export const actions: Actions = {
             console.log(email);
             console.log(password);
 
-        ////////////////////// program notices that you can pass null that can be .length more than 2, thus kinda passing validation ??
-        // customer:
+            await prisma.customer.create ({
 
-        await prisma.customer.create ({
+                data : {
+                    name:name , 
+                    surname:surname ,
+                    adress:adress,              
+                    postCode:Number(postcode), 
+                    city:city, 
+                    email:email , 
+                    password:password 
 
-            data : {
-                name:name , 
-                surname:surname ,
-                adress:adress,              
-                postCode:Number(postcode), 
-                city:city, 
-                email:email , 
-                password:password 
+                }
 
+            })
+
+
+
+         const c = await prisma.customer.findUnique({
+            where: {
+                email: "fake@email.com",
             }
 
-        })
-        const c = await prisma.customer.findMany()
-        const p =  await prisma.product.findMany() 
+         })   
+        // const p =  await prisma.product.findMany() 
+        // console.log(p);
+         console.log(c , "------------LOK LOOK LOOK-----------");
+
+
+
+
+            // const c1 = await prisma.customer.findUnique({
+            //     where: {
+            //         email: email
+            //       },
+
+            //     });
+
+            // console.log(c1 + "-------I AM LOOKING FOR THIS--------");
+
+
+        //-----------------------------------------------------.json() as unknown as Customer------------------
         // await prisma.product.create({
         //     data: {
         //         category: 'Milk & Dairy',
@@ -66,11 +88,6 @@ export const actions: Actions = {
         //         title: 'Very Nice Milk',
         //     }
         // })  
-        console.log(p);
-        console.log(c);
-
-
-
 
     }
 };

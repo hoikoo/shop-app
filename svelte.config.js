@@ -8,8 +8,15 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter()
-	}
+		adapter: adapter(),
+		
+	},
+	vitePlugin: {    
+		experimental: 
+		{ 
+		inspector: true 
+	} 
+}
 };
 
 export default config;

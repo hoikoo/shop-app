@@ -15,7 +15,7 @@
 
 
     <div class = "container1">
-    <ImageP prodIMG={data.products.image}></ImageP>
+    <ImageP prodIMG={data.products.image} ></ImageP>
     <DescriptionP title={data.products.title} price={data.products.price} description={data.products.description} rate={data.products.rating.rate}></DescriptionP>
     </div>
 

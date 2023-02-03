@@ -1,12 +1,17 @@
 <script lang="ts">
+	import type { PageData } from "./$types";
     import Bar from "./Bar.svelte";
+
+    export let data: PageData
 
 </script>
 
 
+{data.user?.name}
+
 <div class = "globalContainer">
     <div class="container1">
-        <Bar redTrue = {true} text = "" serachTrue = {true} logoTrue = {true}  cartTrue = {true}></Bar>
+        <Bar redTrue = {true} text = "" serachTrue = {true} logoTrue = {true}  cartTrue = {true} checkUser = {true} userActive = {data.user !== null}></Bar>
     </div>
 
     <slot></slot>
