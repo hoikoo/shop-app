@@ -9,7 +9,7 @@
     import type { productGetId } from "./+page.server"; /// gets id from server ?
 
     export let data: PageData
-
+    export const productCart = data.productId;
 
 </script>
 

@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Product" ADD COLUMN     "description" TEXT NOT NULL DEFAULT '',
+ADD COLUMN     "rating" DECIMAL(65,30),
+ALTER COLUMN "price" SET DATA TYPE DECIMAL(65,30);

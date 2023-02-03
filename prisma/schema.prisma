@@ -24,7 +24,9 @@ model Product {
   id       Int    @id @default(autoincrement())
   title    String
   category String
-  price    Int
+  description String @default("")
+  rating    Decimal? 
+  price    Decimal
   image    String
 
   CartItem CartItem[]
