@@ -24,7 +24,7 @@
     display: grid;
     grid-template-columns: 1fr;
     place-self: center;
-    width: 90%;
+    width: 88%;
     
     background-color: white;
     padding: 25px;
