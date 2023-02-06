@@ -3,6 +3,14 @@ import type { Product } from "@prisma/client";
 import { prisma } from "../../../lib/db";
 import { loadUser } from "$lib/auth";
 
+// import type { PageData } from "../../$types";
+// import { redirect } from "@sveltejs/kit";
+
+
+
+
+// export let data: PageData;
+
 interface Rating {
     rate: number;
     count: number;
@@ -29,6 +37,7 @@ export interface productGetId {
 
 export const load: PageServerLoad = async (event) => {
 
+    
     return {
         productId: event.params.id, 
 
@@ -43,18 +52,21 @@ export const load: PageServerLoad = async (event) => {
 
 export const actions: Actions = {
     default: async (event) => {
+
         const form = await event.request.formData(); 
         const user = await loadUser(event.cookies);
 
-        console.log(form, user);
-        console.log("PRODUCT ID:" ,parseInt(event.params.id), "CUSTOMER ID:", user?.id ,"QUANTITY ID:", 1 , "DEBUG DEBUG DEBUG");
+        //console.log(form, user);
+        // console.log("PRODUCT ID:" ,parseInt(event.params.id), "CUSTOMER ID:", user?.id ,"QUANTITY ID:", 1 , "DEBUG DEBUG DEBUG");
         
 
+        
 
 
         const a = await prisma.cartItem.create ({
 
-             data: {
+             data: { // <===   error ?????
+                //////// CHANGE QUANTITY PROPERTY TO INCREMENT ????????
                  quantity:1,
                  productId: parseInt(event.params.id),
                  customerId: user?.id
@@ -63,7 +75,9 @@ export const actions: Actions = {
 
          })
 
-         console.log(a);
+
+
+        //  console.log(a);
 
     }
 };

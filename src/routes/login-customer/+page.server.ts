@@ -21,6 +21,16 @@ export const actions: Actions = {
         const form = await event.request.formData(); 
         const email = getFormValue(form, 'email');
         const password = getFormValue(form, 'password');
+
+
+        const aboba = "string" ;
+        console.log(crypto.randomUUID(aboba),"CRYPTO SOMETHING???????")
+
+
+
+
+
+
     
         if (email==null || email.length<2 || password==null || password.length<2) {
 
@@ -43,11 +53,11 @@ export const actions: Actions = {
 
              if (c?.password == password) {
 
-                console.log (c , "------USER INDEED  FOUND!-------");
+                // console.log (c , "------USER INDEED  FOUND!-------");
 
              } else {
 
-                console.log ("------USER NOT FOUND!-------");
+                // console.log ("------USER NOT FOUND!-------");
                 return {errorPass:true}
 
              }

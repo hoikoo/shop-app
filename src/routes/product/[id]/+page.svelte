@@ -15,6 +15,8 @@
 
 
     export const productCart = data.productId;
+
+
     let rateNotNull = false;
     if(data.products !== null  && data.products.rating !== null && data.products.rating !== null) {
         rateNotNull = true
@@ -23,15 +25,16 @@
 
 </script>
 
-<form method="post">
+<!-- <form method="post">
     <input name="productId" value={productCart} type="hidden" />
     <button>add to cart button</button>
 
-</form>
+</form> -->
 
     {#if data.products !== null}
     <div class = "container1">
-    <ImageP prodIMG={data.products.image} ></ImageP>
+        <!-- some error with image ughhhhhhhh specifically with button on click -->
+    <ImageP prodIMG={data.products.image} productCart = {productCart}></ImageP>
     <DescriptionP title={data.products.title} price={data.products.price} description={data.products.description} rate={data.products.rating} rateNotNull={rateNotNull}></DescriptionP>
     </div>
     {/if}

@@ -21,7 +21,7 @@
     } 
 
 
-console.log(highlightProdduct, "---------IT DOES FETCH IS IS RIGHT ?????????---------");
+// console.log(highlightProdduct, "---------IT DOES FETCH IS IS RIGHT ?????????---------");
 
 </script>
 

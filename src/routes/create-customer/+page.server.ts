@@ -64,7 +64,9 @@ export const actions: Actions = {
          })   
         // const p =  await prisma.product.findMany() 
         // console.log(p);
-         console.log(c , "------------LOK LOOK LOOK-----------");
+
+        
+        //  console.log(c , "------------LOK LOOK LOOK-----------");
 
 
 

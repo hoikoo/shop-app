@@ -1,14 +1,30 @@
 <script lang="ts">
+	import type { CartI } from "./+page.server";
 	import type { PageData } from "./$types";
     import ProductName from "./ProductName.svelte";
     import ProductQuantity from "./ProductQuantity.svelte";
     import ProductNum from "./ProductNum.svelte";
     import ProductPrice from "./ProductPrice.svelte";
+    import type { CartItem } from "@prisma/client";
+    import type { Product } from "@prisma/client";
 
     export let data: PageData
 
+    let cartItemArr: Array<CartI> = [];
+
+
+         for ( let i = 0; i < data.bob.length ; i++ ) {
+
+            cartItemArr.push( data.bob[i] ) ;
+            
+        }
+
+    //  console.log(cartItemArr,"CHECK INPUT CHECHECHCEHCEH");
+
+    let i = 1;
 
 </script>
+
 
 <div class = "cartField">
 
@@ -18,29 +34,33 @@
 
         <div class = "numberCol">
             No
-            <ProductNum num = {1}></ProductNum>
-            <ProductNum num = {2}></ProductNum>
-
+            {#each  cartItemArr as c, j}
+                <ProductNum num = {j+i}></ProductNum>
+            {/each}
         </div>
 
         <div class = "productCol">
             Product name
-            <ProductName name = "PROD naME"></ProductName>
-            <ProductName name = "PROD naME"></ProductName>
+            {#each  cartItemArr as c}
+                <ProductName name = {c.product.title}></ProductName>
+            {/each}
 
         </div>
 
         <div class = "quantityCol">
             Quantity
-            <ProductQuantity quantity = {2}></ProductQuantity>
-            <ProductQuantity quantity = {1}></ProductQuantity>
+            {#each  cartItemArr as c}
+                <ProductQuantity quantity = {c.quantity}></ProductQuantity>
+            {/each}
 
         </div>
 
         <div class = "priceCol">
             Total price
-            <ProductPrice price = {99.99}></ProductPrice>
-            <ProductPrice price = {78.99}></ProductPrice>
+            {#each  cartItemArr as c}
+            <ProductPrice price = {c.product.price}></ProductPrice>
+            {/each}
+            
 
         </div>
 

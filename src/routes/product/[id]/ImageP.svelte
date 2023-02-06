@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import { redirect } from "@sveltejs/kit";
+    import type { PageData } from "./$types";
+    export let data: PageData;
 
 
-    
-    
-    
     export let prodIMG: string;
-
-
+    
+    export let productCart: string;
 
 
     function checkUser() {
-        if ($page.data.user !== null) {
+        if (data.user !== null) {
 
             addToCart()
 
@@ -24,17 +24,22 @@
 
     function addToCart() {
 
-        window.location.href='/cart';
+         alert("Product added");
+         console.log("Product added");
+        throw redirect (302, "/") 
+
+       
+        
     }
 
     function goLogIn() {
-
-        window.location.href='/login-customer';
+        alert("Sign in first");
+        console.log("Sign in first");
+        throw redirect (302, "/"); 
+        
+        
     }
 
-    function hover() {
-        return alert("Item");
-    }
 
     
     
@@ -46,7 +51,11 @@
  hllo world
 {/if} -->
 
+<!-- <form method="post">
+    <input name="productId" value={productCart} type="hidden" />
+    <button>add to cart button</button>
 
+</form> -->
 
 
 <div class="container"> 
@@ -55,8 +64,11 @@
     <div class="containIMG">
         <img class = "iMG" src = {prodIMG} alt = "img"/>
     </div>
-    <button class = "addCart"  on:click={ () => checkUser()}>ADD TO CART</button>
 
+    <form method="post" style = "place-items: center">
+        <input name="productId" value={productCart} type="hidden" />
+        <button class = "addCart"  on:click={ () => checkUser()}>ADD TO CART</button>
+    </form>
     
 </div>
 
@@ -99,6 +111,7 @@
 .addCart {
     padding:10px;
     overflow: hidden;
+    width: 100%;
     background-color: #f54747;
     color: #300505 ;
     font-size: large;
