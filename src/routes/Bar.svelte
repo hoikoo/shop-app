@@ -40,30 +40,45 @@
         {#if userActive}
             
         
-        <div class = "iMGContainer">
-            <a href="../profile/me"> 
-                <img class="iMG"  src={user} alt="img">
-            </a>
-        </div>
+            <div class = "iMGContainer">
+                <a href="../profile/me"> 
+                    <img class="iMG"  src={user} alt="img">
+                </a>
+            </div>
 
         {:else}
 
-        <div class = "iMGContainer">
-            <a href="../create-customer"> 
-                <img class="iMG" style="opacity: 0.2;"  src={user} alt="img">
-            </a>
-        </div>
+            <div class = "iMGContainer">
+                <a href="../login-customer"> 
+                    <img class="iMG" style="opacity: 0.2;"  src={user} alt="img">
+                </a>
+            </div>
 
         {/if}
 
     {/if}
 
     {#if cartTrue}
+
+        {#if userActive}
+
+            <div class = "iMGContainer">
+                <a href="../cart"> 
+                    <img class="iMG"  src={cartIMG} alt="img">
+                </a>
+            </div>
+
+        {:else}
+
         <div class = "iMGContainer">
-            <a href="../cart"> 
-                <img class="iMG"  src={cartIMG} alt="img">
+            <a href="../login-customer"> 
+                <img class="iMG" style="opacity: 0.2;" src={cartIMG} alt="img">
             </a>
         </div>
+
+
+        {/if}
+
     {/if}
 
     {#if serachTrue}

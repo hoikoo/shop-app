@@ -21,6 +21,12 @@
 
 </script>
 
+<form method="post">
+    <input name="productId" value={productCart} type="hidden" />
+    <button>add to cart button</button>
+
+</form>
+
     {#if data.products !== null}
     <div class = "container1">
     <ImageP prodIMG={data.products.image} ></ImageP>

@@ -12,7 +12,11 @@ export let form: ActionData;
 
 error: {form?.error} 
 errorPass: {form?.errorPass} 
+
+
 <div class = "application">
+
+    <div class = "text" style = "font-size: large;">Sign-in</div>
 
     {#if form?.error==true} 
     <p class = "p" style="place-self: center ;  color:red">Please fill in all entries</p>
@@ -28,13 +32,13 @@ errorPass: {form?.errorPass}
 
     <form method="post">
 
-    <div class = "bar" > 
+    <div class = "bar" style =" border-top: 1px #e9e9e9 solid;"> 
         <p class = "p">E-mail:</p>
         <input name="email" />
         <button>submit</button>
     </div> 
 
-    <div class = "bar" > 
+    <div class = "bar" style =" border-bottom: 1px #e9e9e9 solid;"> 
         <p class = "p">Password:</p>
         <input name="password" />
         
@@ -42,6 +46,11 @@ errorPass: {form?.errorPass}
     </div> 
 
     </form>
+
+    <div class = "text">Don't have account yet?</div>
+    <a href="./create-customer" class = "text" style=" margin: 5px;">
+        <div >Create new account</div>
+    </a>
 
 </div>
 
@@ -58,17 +67,23 @@ errorPass: {form?.errorPass}
         border-radius: 5px;
         place-self: center;
         font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
     }
 
     .bar{
         display: grid;
         grid-template-columns: 1fr max-content max-content;
         padding: 10px;
+
     }
 
     .p {
         place-self: end;
     }
 
+    .text {
+        place-self: center;
+        margin: 15px;
+    }
 
 </style>

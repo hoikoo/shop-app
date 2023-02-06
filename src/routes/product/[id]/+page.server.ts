@@ -1,6 +1,7 @@
-import type { PageServerLoad } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
 import type { Product } from "@prisma/client";
 import { prisma } from "../../../lib/db";
+import { loadUser } from "$lib/auth";
 
 interface Rating {
     rate: number;
@@ -35,4 +36,13 @@ export const load: PageServerLoad = async (event) => {
         })
 
     };
+};
+
+export const actions: Actions = {
+    default: async (event) => {
+        const form = await event.request.formData(); 
+        const user = await loadUser(event.cookies)
+        console.log(form, user);
+    
+    }
 };

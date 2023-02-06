@@ -14,6 +14,8 @@ error: {form?.error}
 <div class = "application">
 
 
+    <div class = "text" style="font-size: large;">Create your account</div>
+
     {#if form?.error==true} 
     <p class = "p" style="place-self: center ;  color:red">Please fill in all entries</p>
     {/if}
@@ -24,7 +26,7 @@ error: {form?.error}
 
     <form method="post">
 
-        <div class = "bar" > 
+        <div class = "bar" style="border-top: 1px #e9e9e9 solid;"> 
             <p class = "p">Name:</p>
             
             <input name="name" />
@@ -62,13 +64,20 @@ error: {form?.error}
             <button>submit</button>
         </div> 
 
-        <div class = "bar" > 
+        <div class = "bar" style="border-bottom: 1px #e9e9e9 solid;"> 
             <p class = "p">Password:</p>
             <input name="password" />
             <button>submit</button>
         </div> 
 
     </form>
+
+    <div class = "text">Already have an account?</div>
+    <a href="./login-customer" class = "text" style=" margin: 5px;">
+        <div >Sign in</div>
+    </a>
+
+
 </div>
 
 <style>
@@ -81,6 +90,7 @@ error: {form?.error}
         border-radius: 5px;
         place-self: center;
         font-family: Arial, Helvetica, sans-serif;
+        box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
     }
 
     .bar{
@@ -92,5 +102,11 @@ error: {form?.error}
     .p {
         place-self: end;
     }
+
+    .text {
+        place-self: center;
+        margin: 15px;
+    }
+
 
 </style>
