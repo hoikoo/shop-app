@@ -10,7 +10,10 @@ export let name: string;
 <style>
 
 .container {
+    display: grid;
+    align-content: center;
     width: 100%;
+    height: 40px;
     border-top: 1px #e9e9e9 solid;
 }
 

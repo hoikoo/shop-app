@@ -4,6 +4,7 @@
     import ProductQuantity from "./ProductQuantity.svelte";
     import ProductNum from "./ProductNum.svelte";
     import ProductPrice from "./ProductPrice.svelte";
+
     export let data: PageData
 
 
@@ -91,8 +92,8 @@
 
     padding: 10px;
 
-
-    border-bottom: 1px #e9e9e9 solid;
+    
+    
     border-right: 1px #e9e9e9 solid;
 }
 
@@ -102,7 +103,7 @@
     padding: 10px;
 
 
-    border-bottom: 1px #e9e9e9 solid;
+    
     border-right: 1px #e9e9e9 solid;
 }
 
@@ -112,7 +113,7 @@
     padding: 10px;
 
 
-    border-bottom: 1px #e9e9e9 solid;
+    
     border-right: 1px #e9e9e9 solid;
 
 }
@@ -123,49 +124,10 @@
     padding: 10px;
 
 
-    border-bottom: 1px #e9e9e9 solid;
+   
 
 }
 
-/* .cartProdGridHead{    
-    display: grid;
-    place-self: center;
-    width: 96%;
-
-
-    grid-template-columns: max-content 1fr max-content max-content;
-}
-
-.cartProdGrid {
-    place-self: center;
-    width: 96%;
-    display: grid;
-
-    grid-template-columns: max-content 1fr max-content max-content;
-}
-
-
-.cartProdGridHead > div{
-    padding: 12px;
-    border-bottom: 1px #e9e9e9 solid;
-    border-right: 1px #e9e9e9 solid;
-
-}
-
-.cartProdGrid > div {
-    padding: 12px;
-    border-bottom: 1px #e9e9e9 solid;
-    border-right: 1px #e9e9e9 solid;
-
-}
-
-
-.number{ 
-    background-color: blue;
-
-
-}
- */
 
 
 

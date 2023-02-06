@@ -24,6 +24,9 @@ export interface productGetId {
 }
 
 
+
+
+
 export const load: PageServerLoad = async (event) => {
 
     return {
@@ -41,8 +44,26 @@ export const load: PageServerLoad = async (event) => {
 export const actions: Actions = {
     default: async (event) => {
         const form = await event.request.formData(); 
-        const user = await loadUser(event.cookies)
+        const user = await loadUser(event.cookies);
+
         console.log(form, user);
-    
+        console.log("PRODUCT ID:" ,parseInt(event.params.id), "CUSTOMER ID:", user?.id ,"QUANTITY ID:", 1 , "DEBUG DEBUG DEBUG");
+        
+
+
+
+        const a = await prisma.cartItem.create ({
+
+             data: {
+                 quantity:1,
+                 productId: parseInt(event.params.id),
+                 customerId: user?.id
+                
+            }
+
+         })
+
+         console.log(a);
+
     }
 };
