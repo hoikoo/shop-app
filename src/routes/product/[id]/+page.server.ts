@@ -2,14 +2,7 @@ import type { Actions, PageServerLoad } from "./$types";
 import type { Product } from "@prisma/client";
 import { prisma } from "../../../lib/db";
 import { loadUser } from "$lib/auth";
-
-// import type { PageData } from "../../$types";
-// import { redirect } from "@sveltejs/kit";
-
-
-
-
-// export let data: PageData;
+import { redirect } from "@sveltejs/kit";
 
 interface Rating {
     rate: number;
@@ -30,9 +23,6 @@ export interface productGetId {
     id: number
 
 }
-
-
-
 
 
 export const load: PageServerLoad = async (event) => {
@@ -61,20 +51,26 @@ export const actions: Actions = {
         
 
         
+        if (user !== null ) {
 
+            const a = await prisma.cartItem.create ({
 
-        const a = await prisma.cartItem.create ({
+                data: { // <===   error ?????
+                    //////// CHANGE QUANTITY PROPERTY TO INCREMENT ????????
+                    quantity:1,
+                    productId: parseInt(event.params.id),
+                    customerId: user?.id
+                    
+                }
 
-             data: { // <===   error ?????
-                //////// CHANGE QUANTITY PROPERTY TO INCREMENT ????????
-                 quantity:1,
-                 productId: parseInt(event.params.id),
-                 customerId: user?.id
-                
-            }
+            })
 
-         })
+            throw redirect(302, "/cart") // optional
 
+        } else {
+
+            throw redirect(302, "/create-customer")
+        }
 
 
         //  console.log(a);

@@ -10,8 +10,8 @@ export let form: ActionData;
 
 </script>
 
-error: {form?.error} 
-errorPass: {form?.errorPass} 
+<!-- error: {form?.error} 
+errorPass: {form?.errorPass}  -->
 
 
 <div class = "application">
@@ -66,6 +66,7 @@ errorPass: {form?.errorPass}
         vertical-align: top ;     
         background-color: white;
         padding: 20px;
+        margin: 7%;
         border-radius: 5px;
         place-self: center;
         font-family: Arial, Helvetica, sans-serif;

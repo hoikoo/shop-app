@@ -4,13 +4,17 @@
     export let rate = 0;
     export let rateNotNull = false;
     export let description: string;
-    // export let category: string;
+
 </script>
 
 <div class="container"> 
+
     <div class="title">{title}</div>
+
     <div class = "priceRateContain">
+
         <div class="price">{price + "$"}</div>
+
         <div class="rate">
             {#if rateNotNull}
                 {"Rating " + rate + "★"}
@@ -18,12 +22,13 @@
                 {"No rating ★"}
             {/if}
         </div>
+
     </div>
+
     <div class = "description">
-        <!-- <div>Description: </div> -->
         {description}
     </div>
-    <!-- <div class = "category">{"Category: " + category}</div> -->
+
 </div>
 
 
@@ -93,20 +98,5 @@
     border-top: hidden;
 
 }
-
-/* .category {
-    overflow: hidden;
-    padding: 10px;
-    background-color: #a8dadc ;
-    color: #1e5670 ;
-    text-align: center;
-    font-weight: bold;
-    border: #a8dadc  2px solid;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: inset 0px 4px rgb(255, 255, 255, 0.3) ;
-    
-} */
-
 
 </style>

@@ -22,9 +22,7 @@ export const actions: Actions = {
         const email = getFormValue(form, 'email');
         const password = getFormValue(form, 'password');
 
-
-        const aboba = "string" ;
-        console.log(crypto.randomUUID(aboba),"CRYPTO SOMETHING???????")
+///////////////////////////////////////////some hashingalgorithm
 
 
 

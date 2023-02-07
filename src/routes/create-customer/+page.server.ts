@@ -31,13 +31,13 @@ export const actions: Actions = {
             return {error:true}
 
         }
-            console.log(name);
-            console.log(surname);
-            console.log(city);        
-            console.log(postcode);
-            console.log(adress);
-            console.log(email);
-            console.log(password);
+            // console.log(name);
+            // console.log(surname);
+            // console.log(city);        
+            // console.log(postcode);
+            // console.log(adress);
+            // console.log(email);
+            // console.log(password);
 
             await prisma.customer.create ({
 
@@ -56,12 +56,12 @@ export const actions: Actions = {
 
 
 
-         const c = await prisma.customer.findUnique({
-            where: {
-                email: "fake@email.com",
-            }
+        //  const c = await prisma.customer.findUnique({
+        //     where: {
+        //         email: "fake@email.com",
+        //     }
 
-         })   
+        //  })   
         // const p =  await prisma.product.findMany() 
         // console.log(p);
 

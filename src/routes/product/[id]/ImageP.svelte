@@ -1,62 +1,27 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import type { Customer } from "@prisma/client";
 	import { redirect } from "@sveltejs/kit";
-    import type { PageData } from "./$types";
-    export let data: PageData;
-
 
     export let prodIMG: string;
-    
     export let productCart: string;
+    export let chackUs: Customer | null;
 
+    function ckeckAuth() {
 
-    function checkUser() {
-        if (data.user !== null) {
-
-            addToCart()
+        if(chackUs !== null) {
+            alert("Product added");
 
         } else {
-
-            goLogIn()
-
+            alert("Sign in first");
+            
         }
+
     }
-
-    function addToCart() {
-
-         alert("Product added");
-         console.log("Product added");
-        throw redirect (302, "/") 
-
-       
-        
-    }
-
-    function goLogIn() {
-        alert("Sign in first");
-        console.log("Sign in first");
-        throw redirect (302, "/"); 
-        
-        
-    }
-
-
     
     
 
 </script>
-
-
-<!-- {#if $page.data.user !== null}
- hllo world
-{/if} -->
-
-<!-- <form method="post">
-    <input name="productId" value={productCart} type="hidden" />
-    <button>add to cart button</button>
-
-</form> -->
-
 
 <div class="container"> 
 
@@ -66,8 +31,10 @@
     </div>
 
     <form method="post" style = "place-items: center">
+
         <input name="productId" value={productCart} type="hidden" />
-        <button class = "addCart"  on:click={ () => checkUser()}>ADD TO CART</button>
+        <button class = "addCart"  on:click={ckeckAuth}>ADD TO CART</button>
+
     </form>
     
 </div>

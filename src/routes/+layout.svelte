@@ -7,7 +7,7 @@
 </script>
 
 
-{data.user?.name}
+<!-- {data.user?.name} -->
 
 <div class = "globalContainer">
     <div class="container1">

@@ -10,11 +10,11 @@ export let form: ActionData;
 </script>
 
 
-error: {form?.error} 
+<!-- error: {form?.error}  -->
 <div class = "application">
 
 
-    <div class = "text" style="font-size: large;">Create your account</div>
+    <div class = "text" style="font-size: large;">Create new account</div>
 
     {#if form?.error==true} 
     <p class = "p" style="place-self: center ;  color:red">Please fill in all entries</p>
@@ -87,6 +87,7 @@ error: {form?.error}
         vertical-align: top ;     
         background-color: white;
         padding: 20px;
+        margin: 2%;
         border-radius: 5px;
         place-self: center;
         font-family: Arial, Helvetica, sans-serif;
