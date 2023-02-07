@@ -6,7 +6,8 @@ import { redirect } from "@sveltejs/kit";
 import { prisma } from "../../lib/db";
 import type { Actions, PageServerLoad } from "./$types";
 
- export interface CartI {
+
+export interface CartI {
      productId : number,
      customerId : number,
      quantity : number,
@@ -23,7 +24,7 @@ export const load: PageServerLoad = async (event) => {
 
         const user = await loadUser(event.cookies);
 
-         const b =  await prisma.cartItem.findMany({
+        const b =  await prisma.cartItem.findMany({
             where: {
               customerId: user?.id
             },
@@ -34,6 +35,17 @@ export const load: PageServerLoad = async (event) => {
         })
     
         // console.log(b);
+        // const checkValue = await prisma.cartItem.findUnique({
+        //     where: {
+        //         customerId: user?.id,
+        //         productId: 
+
+        //     }
+
+        // })
+
+        // if (checkValue == null) 
+
 
         return {
             bob: b

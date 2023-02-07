@@ -2,6 +2,7 @@ import type { Customer } from "@prisma/client";
 import { redirect } from "@sveltejs/kit";
 import { prisma } from "../../lib/db";
 import type { Actions, PageServerLoad } from "./$types";
+import {createHash} from 'crypto'
 
 function getFormValue(data: FormData, key: string): string | null {
     return data.get(key) as unknown as string | null
@@ -23,7 +24,14 @@ export const actions: Actions = {
         const password = getFormValue(form, 'password');
 
 ///////////////////////////////////////////some hashingalgorithm
-
+        //creating hash object 
+        const hash = createHash('sha1');
+        //passing the data to be hashed
+        const data = hash.update('nodejsera', 'utf-8');
+        //Creating the hash in the required format
+        const gen_hash = data.digest('hex');
+        //Printing the output on the console
+        console.log("hash : " + gen_hash);
 
 
 

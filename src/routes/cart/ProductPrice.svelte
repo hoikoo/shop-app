@@ -4,7 +4,7 @@ export let price: number = 0;
 
 </script>
 
-<div class = "container">{price + "$"}</div>
+<div class = "container">{price.toFixed(2) + "$"}</div>
 
 
 <style>

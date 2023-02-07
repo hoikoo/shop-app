@@ -2,20 +2,9 @@
     import type { PageData } from "./$types";
     import ImageP from "./ImageP.svelte";
     import DescriptionP from "./DescriptionP.svelte";
-    
-	// import { page } from "$app/stores";	
-	// import { dataset_dev } from "svelte/internal";
-	// import type { ProductI } from "./+page.server";
-    // import type { productGetId } from "./+page.server"; /// gets id from server ?
 
-
-
-    
     export let data: PageData
-
-
     export const productCart = data.productId;
-
 
     let rateNotNull = false;
     if(data.products !== null  && data.products.rating !== null && data.products.rating !== null) {
@@ -25,7 +14,6 @@
 
 </script>
 
-
     {#if data.products !== null}
     <div class = "container1">
     <ImageP prodIMG={data.products.image} productCart = {productCart} chackUs = {data.user}></ImageP>
@@ -34,7 +22,6 @@
     {/if}
 
 <style>
-
 
 .container1 {
     display: grid;

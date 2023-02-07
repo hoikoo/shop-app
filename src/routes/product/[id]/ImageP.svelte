@@ -10,7 +10,7 @@
     function ckeckAuth() {
 
         if(chackUs !== null) {
-            alert("Product added");
+            alert("Product added to cart");
 
         } else {
             alert("Sign in first");
@@ -18,13 +18,10 @@
         }
 
     }
-    
-    
 
 </script>
 
 <div class="container"> 
-
 
     <div class="containIMG">
         <img class = "iMG" src = {prodIMG} alt = "img"/>
@@ -108,4 +105,5 @@
     border-bottom-color: #be1717;
     border-right-color:#be1717;
 }
+
 </style>

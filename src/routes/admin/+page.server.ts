@@ -26,12 +26,12 @@ export const actions: Actions = {
 
             })
 
-            // await prisma.product.create ({
-            //     data: {
-            //         title: title
-            //         c
-            //     }
-            // })
+            //  await prisma.product.create ({
+            //      data: {
+            //          title: title
+            //          c
+            //      }
+            //  })
 
 
         }

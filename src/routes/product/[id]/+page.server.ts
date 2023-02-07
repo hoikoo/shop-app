@@ -1,5 +1,6 @@
 import type { Actions, PageServerLoad } from "./$types";
 import type { Product } from "@prisma/client";
+import type { CartItem } from "@prisma/client";
 import { prisma } from "../../../lib/db";
 import { loadUser } from "$lib/auth";
 import { redirect } from "@sveltejs/kit";
@@ -24,7 +25,6 @@ export interface productGetId {
 
 }
 
-
 export const load: PageServerLoad = async (event) => {
 
     
@@ -44,36 +44,52 @@ export const actions: Actions = {
     default: async (event) => {
 
         const form = await event.request.formData(); 
-        const user = await loadUser(event.cookies);
-
-        //console.log(form, user);
-        // console.log("PRODUCT ID:" ,parseInt(event.params.id), "CUSTOMER ID:", user?.id ,"QUANTITY ID:", 1 , "DEBUG DEBUG DEBUG");
+        const user = await loadUser(event.cookies);    
         
+        const prodInCartTrue = await prisma.cartItem.findFirst({
+            where: {
+                productId: parseInt(event.params.id),
+                customerId: user?.id
 
-        
-        if (user !== null ) {
+
+            },
+
+        })
+
+        if (prodInCartTrue == null && user!== null) {
 
             const a = await prisma.cartItem.create ({
 
-                data: { // <===   error ?????
-                    //////// CHANGE QUANTITY PROPERTY TO INCREMENT ????????
+                data: { 
                     quantity:1,
                     productId: parseInt(event.params.id),
                     customerId: user?.id
-                    
+                                
                 }
+            });
 
-            })
+              throw redirect(302, "/cart"); 
 
-            throw redirect(302, "/cart") // optional
-
+        } else if (prodInCartTrue !== null && user!== null) {
+            const k = await prisma.cartItem.update ({
+                where: {
+                    cartId: prodInCartTrue.cartId
+                },
+                
+                data: {
+                    quantity: {
+                        increment: 1,
+                    },
+                },
+            });
+            
+             throw redirect(302, "/cart");
         } else {
 
-            throw redirect(302, "/create-customer")
+            throw redirect(302, "/create-customer");
+
         }
-
-
-        //  console.log(a);
+  
 
     }
 };

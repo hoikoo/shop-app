@@ -14,12 +14,9 @@
 
 
          for ( let i = 0; i < data.bob.length ; i++ ) {
-
-            cartItemArr.push( data.bob[i] ) ;
-            
+            cartItemArr.push( data.bob[i] ) ;   
         }
 
-    //  console.log(cartItemArr,"CHECK INPUT CHECHECHCEHCEH");
 
     let i = 1;
 
@@ -58,7 +55,7 @@
         <div class = "priceCol">
             Total price
             {#each  cartItemArr as c}
-            <ProductPrice price = {c.product.price}></ProductPrice>
+            <ProductPrice price = {c.product.price*c.quantity}></ProductPrice>
             {/each}
             
 
