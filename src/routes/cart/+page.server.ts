@@ -8,10 +8,11 @@ import type { Actions, PageServerLoad } from "./$types";
 
 
 export interface CartI {
-     productId : number,
-     customerId : number,
-     quantity : number,
-     product: Product
+    cartId: number,
+    productId : number,
+    customerId : number,
+    quantity : number,
+    product: Product
  }
 
 
@@ -34,19 +35,6 @@ export const load: PageServerLoad = async (event) => {
             }
         })
     
-        // console.log(b);
-        // const checkValue = await prisma.cartItem.findUnique({
-        //     where: {
-        //         customerId: user?.id,
-        //         productId: 
-
-        //     }
-
-        // })
-
-        // if (checkValue == null) 
-
-
         return {
             bob: b
 

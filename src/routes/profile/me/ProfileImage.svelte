@@ -1,0 +1,57 @@
+<script lang = "ts">
+import profileImg from "../../img/user.png"
+
+
+</script>
+
+
+<div class = "container">
+    
+    <div class = "containIMG">
+
+
+        <img class = "iMG" src = {profileImg} alt = "img"/>
+
+
+    </div>
+
+</div>
+
+
+
+<style>
+
+.container {
+    display: grid;
+    /* grid-template-rows: 6fr max-content; */
+    vertical-align: top ; 
+    margin: 20px;
+    border: 2px rgba(223, 223, 223, 0.3);
+    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
+    border-radius: 100%;
+    height: 300px; 
+    aspect-ratio: 1/1;
+
+    justify-self: center;
+}
+
+.containIMG {
+    place-content: center;
+
+    display: flex;
+    width: 100%;
+    /* box-shadow:inset 0px 0px 0px 2px rgb(228, 228, 228); */
+
+}
+
+.iMG {
+    width: 100%;
+    height: 100%;
+    place-self: center;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 100%;
+}
+
+
+</style>

@@ -43,9 +43,17 @@ export const load: PageServerLoad = async (event) => {
 export const actions: Actions = {
     default: async (event) => {
 
+
+        
+        const redirectToCart = await prisma.$transaction(async (p) => {
+
         const form = await event.request.formData(); 
         const user = await loadUser(event.cookies);    
         
+
+
+        
+             
         const prodInCartTrue = await prisma.cartItem.findFirst({
             where: {
                 productId: parseInt(event.params.id),
@@ -56,40 +64,44 @@ export const actions: Actions = {
 
         })
 
-        if (prodInCartTrue == null && user!== null) {
+            if (prodInCartTrue == null && user!== null) {
 
-            const a = await prisma.cartItem.create ({
+                const a = await p.cartItem.create ({
 
-                data: { 
-                    quantity:1,
-                    productId: parseInt(event.params.id),
-                    customerId: user?.id
-                                
-                }
-            });
-
-              throw redirect(302, "/cart"); 
-
-        } else if (prodInCartTrue !== null && user!== null) {
-            const k = await prisma.cartItem.update ({
-                where: {
-                    cartId: prodInCartTrue.cartId
-                },
-                
-                data: {
-                    quantity: {
-                        increment: 1,
+                    data: { 
+                        quantity:1,
+                        productId: parseInt(event.params.id),
+                        customerId: user?.id
+                                    
+                    }
+                });
+                return true;
+            } else if (prodInCartTrue !== null && user!== null) {
+                const k = await p.cartItem.update ({
+                    where: {
+                        cartId: prodInCartTrue.cartId
                     },
-                },
-            });
-            
-             throw redirect(302, "/cart");
-        } else {
+                    
+                    data: {
+                        quantity: {
+                            increment: 1,
+                        },
+                    },
+                });
+                return true;
+            } else {
+                return false;
 
+            }
+  
+        })
+        
+        if(redirectToCart) {
+            throw redirect(302, "/cart"); 
+        }  
+        else {
             throw redirect(302, "/create-customer");
 
         }
-  
-
     }
 };

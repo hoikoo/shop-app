@@ -10,6 +10,7 @@ export let name: string;
 <style>
 
 .container {
+    font-size: normal;
     display: grid;
     align-content: center;
     width: 100%;

@@ -32,7 +32,7 @@ export const actions: Actions = {
         const gen_hash = data.digest('hex');
         //Printing the output on the console
         console.log("hash : " + gen_hash);
-
+//////////////////////////////////////////////////////
 
 
 
@@ -69,13 +69,20 @@ export const actions: Actions = {
              }
 
              event.cookies.set('session', email, {
-                path: '/'
-             });
+                path: '/',
+
+            } );
 
 
-        return {error:false,
+            //  event.cookies.set('session', "", {
+            //     path: '/',
+            //     expires: new Date(1)
+            // } );
+
+
+        return {error:false}
         
-        }
+       
     }
 
 };

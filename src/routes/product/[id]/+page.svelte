@@ -7,6 +7,7 @@
     export const productCart = data.productId;
 
     let rateNotNull = false;
+    
     if(data.products !== null  && data.products.rating !== null && data.products.rating !== null) {
         rateNotNull = true
     }
