@@ -1,9 +1,10 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
+     
     import ProfileImage from "./ProfileImage.svelte";
 
 
-    export let data: PageData
+   export let data: PageData
 
 
 
@@ -33,10 +34,17 @@
     </div>
 
     <div class = "headWImg"> 
-        <form method="post" class = "formStyle">
+        <form method="post" class = "formStyle" action ="?/logout">
 
             <input name="userId" value={data.user?.id} type="hidden" />
-            <button class = "button"  on:click={ () => console.log("Logging out")}>Log out</button>
+            <button class = "button1"  on:click={ () => console.log("Logging out")}>Log out</button>
+
+        </form> 
+
+        <form method="post" class = "formStyle" action ="?/edit">
+
+                <input name="userId" value={data.user?.id} type="hidden" />
+                <button class = "button2"  on:click={ () => console.log("change User info")}>Edit profile</button>
 
         </form> 
     </div>
@@ -116,35 +124,59 @@
 
 }
 
-.button {
+.button1 {
     font-size: large;
     justify-self: center;
     justify-content: center;
     padding: 10px;
     border-radius: 12px;
     width: 50%;
-    background-color: rgba(223, 223, 223, 0.3);
+    background-color: white;
     color: #818181;
-    border: 1px rgb(243, 243, 243) solid;
+    border: hidden;
+    border-bottom: 1px #e9e9e9 solid;
+    box-shadow: 0px 10px 1px #e9e9e93f ;
 
 
 }
 
-.button:hover {
+.button1:hover, .button2:hover {
     background-color: #fafafa;
-    border: 1px #fafafa solid;
+    border: hidden;
+    border-bottom: 1px #fafafa solid;
     color: #aaaaaa;
-
+    box-shadow: 0px 6px 1px #cecece3f ;
 
 }
 
-.button:active {
+.button1:active, .button2:active {
     background-color: rgba(223, 223, 223, 0.8);
     color: #535353;
-    border: 1px rgba(223, 223, 223, 0.8) solid;
-
+    border: hidden;
+    border-bottom: 1px rgba(223, 223, 223, 0.8) solid;
+    box-shadow: 0px 4px 1px #b8b8b83f ;
 
 }
+
+
+.button2 {
+    font-size: medium;
+    justify-self: end;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 12px;
+    width: 15%;
+    background-color: white;
+    color: #818181;
+    border: hidden;
+    border-bottom: 1px #e9e9e9 solid;
+    box-shadow: 0px 10px 1px #e9e9e93f ;
+
+}
+
+
+
+
 
 
 .main1 {

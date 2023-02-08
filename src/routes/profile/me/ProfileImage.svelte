@@ -29,8 +29,9 @@ export let userId: number;
     /* grid-template-rows: 6fr max-content; */
     vertical-align: top ; 
     margin: 20px;
-    border: 2px rgba(223, 223, 223, 0.3);
-    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
+    border-bottom: 2px #e9e9e9 solid;
+    border-right: 2px #e9e9e9 solid;
+    box-shadow: 10px 10px 1px #e9e9e93f ;
     border-radius: 100%;
     height: 300px; 
     aspect-ratio: 1/1;
@@ -42,7 +43,7 @@ export let userId: number;
     place-content: center;
 
     display: flex;
-    width: 100%;
+    height: 100%;
     /* box-shadow:inset 0px 0px 0px 2px rgb(228, 228, 228); */
 
 }

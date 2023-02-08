@@ -1,5 +1,5 @@
 import type { Customer } from "@prisma/client";
-import { prisma } from "../../lib/db";
+import { prisma } from "$lib/db";
 import type { Actions } from "./$types";
 
 function getFormValue(data: FormData, key: string): string | null {

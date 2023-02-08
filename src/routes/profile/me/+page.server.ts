@@ -21,7 +21,7 @@ export const load: PageServerLoad = async (event) => {
 
 
 export const actions: Actions = {
-    default: async (event) => {
+    logout: async (event) => {
     
     const form = await event.request.formData(); 
         console.log("CLick")
@@ -34,6 +34,17 @@ export const actions: Actions = {
 
 
 
+    },
+
+    edit: async (event) => {
+    
+        const form = await event.request.formData(); 
+        console.log("CLick clock")
+    
+        throw redirect(302, "/profile/me/edit-user"); 
+    
     }
+
+
 
 }

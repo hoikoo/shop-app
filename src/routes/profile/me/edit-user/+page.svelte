@@ -7,24 +7,25 @@ import type { ActionData } from "./$types";
 export let form: ActionData;
 
 
+
 </script>
 
 
- <!-- error: {form?.error}   -->
+<!-- error: {form?.error}   -->
 <div class = "application">
 
 
-    <div class = "text" style="font-size: large;">Create new account</div>
+    <div class = "text" style="font-size: large;">Edit your profile</div>
 
     {#if form?.error==true} 
     <p class = "p" style="place-self: center ;  color:red">Please fill in all entries</p>
     {/if}
 
     {#if form?.error==false  } 
-    <p class = "p" style="place-self: center ;  color:green">New account created!</p>
+    <p class = "p" style="place-self: center ;  color:green">Information updated!</p>
     {/if}
 
-    <form method="post">
+    <form method="post"  action ="?/submit">
 
         <div class = "bar" style="border-top: 1px #e9e9e9 solid;"> 
             <p class = "p">Name:</p>
@@ -55,27 +56,16 @@ export let form: ActionData;
             <input class = "input" name="adress" />
 
         </div> 
-
-        <div class = "bar" > 
-            <p class = "p">E-mail:</p>
-            <input class = "input" name="email" />
-
-        </div> 
-
-        <div class = "bar"> 
-            <p class = "p">Password:</p>
-            <input class = "input" name="password" />
-            
-        </div> 
-
+        <div style="width:100%; border-top: 1px #e9e9e9 solid; height:10px"></div>
         <button class="button">Submit</button>
+       
 
     </form>
 
-    <div class = "text">Already have an account?</div>
-    <a href="/login-customer" class = "text" style=" margin: 5px;">
-        <div >Sign in</div>
-    </a>
+    <form method="post" action ="?/cancel">
+        
+        <button class="button2">Cancel changes</button>
+    </form>
 
 
 </div>
@@ -128,6 +118,28 @@ export let form: ActionData;
     button:active {
         cursor: pointer;
         background-color: #7cadc4;
+    }
+
+    .button2 {
+        border: hidden;
+        padding: 10px;
+        width: 100%;
+        place-self: center;
+        border-radius: 5px;
+        background-color: #e9e9e9;
+        color: #818181;
+    }
+    .button2:hover {
+        cursor: pointer;
+        color:#a7a7a7;
+        background-color: rgb(245, 245, 245);
+
+    }
+
+    .button2:active {
+        cursor: pointer;
+        color: #6b6b6b;
+        background-color: #c4c4c4;
     }
 
     .input{
