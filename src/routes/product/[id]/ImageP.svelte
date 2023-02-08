@@ -10,10 +10,10 @@
     function ckeckAuth() {
 
         if(chackUs !== null) {
-            alert("Product added to cart");
+            console.log("Product added to cart");
 
         } else {
-            alert("Sign in first");
+            console.log("Sign in first");
             
         }
 
@@ -45,8 +45,8 @@
     margin: 10px;
     background-color: hotpink;
     box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
-    border-radius: 5px;
-   
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     max-height: 550px;
     height: 100%; 
     aspect-ratio: 1/1;

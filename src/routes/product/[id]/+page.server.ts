@@ -100,7 +100,7 @@ export const actions: Actions = {
             throw redirect(302, "/cart"); 
         }  
         else {
-            throw redirect(302, "/create-customer");
+            throw redirect(302, "/login-customer");
 
         }
     }

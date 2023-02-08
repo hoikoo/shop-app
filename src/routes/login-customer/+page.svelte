@@ -16,7 +16,7 @@ errorPass: {form?.errorPass}  -->
 
 <div class = "application">
 
-    <div class = "text" style = "font-size: large;">Sign-in</div>
+    <div class = "text" style = "font-size: large;">Sign in</div>
 
     {#if form?.error==true} 
     <p class = "p" style="place-self: center ;  color:red">Please fill in all entries</p>

@@ -5,6 +5,7 @@
     import ProductQuantity from "./ProductQuantity.svelte";
     import ProductNum from "./ProductNum.svelte";
     import ProductPrice from "./ProductPrice.svelte";
+    import DeleteButton from "./DeleteButton.svelte";
     import type { CartItem } from "@prisma/client";
     import type { Product } from "@prisma/client";
 
@@ -25,7 +26,7 @@
 
 <div class = "cartField">
 
-    <div class = "header"> Here are your cart products, {data.user?.name}!</div>
+    <div class = "header"> Here are your products, {data.user?.name}!</div>
 
      <div class = "globalCartGrid">
 
@@ -66,10 +67,7 @@
 
             {#each cartItemArr as c}
 
-            <form method="post" style="    display: grid; place-self: center;  height: 40px;">
-                <input name="cartProdId" value={c.cartId} type="hidden" />
-                <button class = "button"  on:click={ () => alert("Product deleted")}>Delete</button>
-            </form> 
+            <DeleteButton value = {c.cartId}></DeleteButton>
 
             {/each}
 
@@ -161,32 +159,6 @@
 
 }
 
-.button {
-    background-color: #e63946;
-    color: rgb(48, 5, 5, 0.2);
-    border: 1px #e63946 solid;
-    border-radius: 3px;
-    padding: 10px;
-
-    font-size: normal;
-    display: grid;
-    align-self: center;
-    width: 100%;
-}
-
-.button:hover {
-    background-color: rgb(230, 57, 70, 0.7);
-    color: rgb(48, 5, 5, 0.1);
-    border: 1px rgb(230, 57, 70, 0.7) solid;
-
-}
-
-.button:active {
-    background-color: rgb(184, 38, 50);
-    color: rgb(48, 5, 5, 0.4);
-    border: 1px rgb(184, 38, 50) solid;
-
-}
 
 
 </style>

@@ -16,8 +16,9 @@ export interface CartI {
  }
 
 
-
-
+ function getFormValue(data: FormData, key: string): string | null {
+    return data.get(key) as unknown as string | null
+}
 
 
 export const load: PageServerLoad = async (event) => {
@@ -45,6 +46,39 @@ export const load: PageServerLoad = async (event) => {
 
 export const actions: Actions = {
     default: async (event) => {
+
+
+        const itemIsDeleted = await prisma.$transaction(async (p) => {
+
+        const form =  await event.request.formData(); 
+        const getcartID = getFormValue(form, 'cartProdId');
+
+        if (getcartID == null) {
+            return false
+        } else {
+            const deleteItemCart = await p.cartItem.delete({
+                where: {
+                    cartId: parseInt(getcartID)
+
+                }
+            })
+            return true
+
+        }
+
+      });
+
+      if (itemIsDeleted) {
+
+        console.log("Product has been deleted");
+        throw redirect(301, "/cart")
+      } else {
+
+        console.log("Unexpected error");
+        throw redirect(301, "/")
+      }
+
+
 
 
     }

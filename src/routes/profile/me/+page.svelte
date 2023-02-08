@@ -32,7 +32,7 @@
         <form method="post" class = "formStyle">
 
             <input name="userId" value={data.user?.id} type="hidden" />
-            <button class = "button"  on:click={ () => alert("Logging out")}>Log out</button>
+            <button class = "button"  on:click={ () => console.log("Logging out")}>Log out</button>
 
         </form> 
     </div>
@@ -69,11 +69,14 @@
     grid-template-rows: 2fr 5fr;
     justify-self: center;
     font-size: large;
-    padding: 20px;
-    border-bottom: 1px #e9e9e9 solid;
+    margin: 20px;
+    padding: 10px;
+    border-bottom: 1px #e9e9e9 solid; 
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     object-fit: contain;
     overflow: hidden;
-
+    box-shadow: 0px 10px 1px #e9e9e93f ;
 }
 
 .headText {
@@ -83,9 +86,10 @@
     background-color: #a8dadc;
     box-shadow: inset 0px 6px rgb(255, 255, 255, 0.3) ;
     border: #a8dadc 2px solid;
+
     text-align: center;
     place-self: center;
-    width: 91%;
+    width: 94%;
     padding: 25px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -102,15 +106,15 @@
 }
 
 .button {
-    font-size: larger;
-
+    font-size: large;
+    justify-self: center;
     justify-content: center;
-    padding: 15px;
+    padding: 10px;
     border-radius: 12px;
-    
+    width: 50%;
     background-color: rgba(223, 223, 223, 0.3);
     color: #818181;
-    border: 1px rgba(223, 223, 223, 0.3) solid;
+    border: 1px rgb(243, 243, 243) solid;
 
 
 }
