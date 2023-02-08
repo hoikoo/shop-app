@@ -4,13 +4,17 @@
 
 
     export let data: PageData
+
+
+
+
 </script>
 
 
 <div class = "meField">
 
     <div class = "headWImg"> 
-        <ProfileImage></ProfileImage>
+        <ProfileImage userId={data.user?.id ?? 0}></ProfileImage>
         <div class = "info"> 
 
             <div class = "headText">Welcome to your account,   {data.user?.name}    {data.user?.surname} </div>
@@ -36,9 +40,16 @@
 
         </form> 
     </div>
+
+
+
+
+
 </div>
 
 <style>
+
+
 
 .headWImg {
     display: grid;

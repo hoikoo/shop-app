@@ -1,6 +1,8 @@
-<script lang = "ts">
+<script lang="ts">
 import profileImg from "../../img/user.png"
 
+
+export let userId: number;
 
 </script>
 
@@ -10,7 +12,8 @@ import profileImg from "../../img/user.png"
     <div class = "containIMG">
 
 
-        <img class = "iMG" src = {profileImg} alt = "img"/>
+        <img class = "iMG" src = {`/api/image/me`} alt = "img"/>
+        <!-- // figure out if user has a profile pricture?? -->
 
 
     </div>

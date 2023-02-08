@@ -43,8 +43,6 @@ export const load: PageServerLoad = async (event) => {
 export const actions: Actions = {
     default: async (event) => {
 
-
-        
         const redirectToCart = await prisma.$transaction(async (p) => {
 
         const form = await event.request.formData(); 

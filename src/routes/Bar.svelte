@@ -26,7 +26,7 @@
 
     {#if logoTrue}
         <div class = "iMGContainer">
-            <a href="../">
+            <a href="/">
                 <img class="iMG" src={logo} alt="img">
             </a>
         </div>
@@ -41,7 +41,7 @@
             
         
             <div class = "iMGContainer">
-                <a href="../profile/me"> 
+                <a href="/profile/me"> 
                     <img class="iMG"  src={user} alt="img">
                 </a>
             </div>
@@ -49,7 +49,7 @@
         {:else}
 
             <div class = "iMGContainer">
-                <a href="../login-customer"> 
+                <a href="/login-customer"> 
                     <img class="iMG" style="opacity: 0.2;"  src={user} alt="img">
                 </a>
             </div>
@@ -63,7 +63,7 @@
         {#if userActive}
 
             <div class = "iMGContainer">
-                <a href="../cart"> 
+                <a href="/cart"> 
                     <img class="iMG"  src={cartIMG} alt="img">
                 </a>
             </div>
@@ -71,7 +71,7 @@
         {:else}
 
         <div class = "iMGContainer">
-            <a href="../login-customer"> 
+            <a href="/login-customer"> 
                 <img class="iMG" style="opacity: 0.2;" src={cartIMG} alt="img">
             </a>
         </div>

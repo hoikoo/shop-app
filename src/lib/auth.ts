@@ -1,20 +1,31 @@
 import type { Customer, Product } from "@prisma/client";
+import { transformDocument } from "@prisma/client/runtime";
 import type { Cookies } from "@sveltejs/kit";
 import { prisma } from "./db";
 
-export function loadUser(cookies: Cookies): Promise<Customer | null> {
+export async function loadUser(cookies: Cookies) {
     const email = cookies.get('session');
 
     if(email == null) {
         return Promise.resolve(null);
     }
 
-    return prisma.customer.findUnique({
+    return await prisma.customer.findUnique({
         where: {
             email
 
 
         },
+        select: {
+            id: true,
+            surname: true,
+            name: true,
+            adress: true,
+            city: true,
+            postCode: true,
+            email: true
+
+        }
     });
 
 }
