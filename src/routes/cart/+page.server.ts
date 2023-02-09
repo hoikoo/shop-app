@@ -45,7 +45,7 @@ export const load: PageServerLoad = async (event) => {
 
 
 export const actions: Actions = {
-    default: async (event) => {
+    delete: async (event) => {
 
 
         const itemIsDeleted = await prisma.$transaction(async (p) => {
@@ -81,6 +81,21 @@ export const actions: Actions = {
 
 
 
+    },
+
+
+    pay: async (event) => {
+        const form =  await event.request.formData();
+        const user = await loadUser(event.cookies)
+
+        const payFor = await prisma.cartItem.deleteMany({
+            where: {
+                customerId: user?.id
+
+            }
+
+
+        })
     }
 
 };

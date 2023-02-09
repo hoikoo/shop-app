@@ -15,7 +15,7 @@
 	import { dataset_dev } from 'svelte/internal';
 
 
-
+    let c = false;
 
 </script>
 
@@ -39,18 +39,17 @@
 
         {#if userActive}
             
-        
             <div class = "iMGContainer">
                 <a href="/profile/me"> 
-                    <img class="iMG"  src={user} alt="img">
+                    <img class="iMGpfp"  src={`/api/image/me`} alt="img">
                 </a>
             </div>
-
+            
         {:else}
 
             <div class = "iMGContainer">
                 <a href="/login-customer"> 
-                    <img class="iMG" style="opacity: 0.2;"  src={user} alt="img">
+                    <img class="iMGpfp" style="opacity: 0.2;"  src={user} alt="img">
                 </a>
             </div>
 
@@ -124,7 +123,12 @@
     margin: 10px;
     height: 100%;  
     max-width: 50px;
+    border-radius: 100%;
+}
 
+.iMGpfp {
+    height: 100%;
+    border-radius: 100%;
 }
 
 .iMG {

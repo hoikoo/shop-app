@@ -1,10 +1,21 @@
 <script lang="ts">
 	import { error } from "@sveltejs/kit";
+    import downloadIMG from "../../../img/download.png"
 import type { ActionData } from "./$types";
 
 
 
 export let form: ActionData;
+
+import type { PageData } from "./$types";
+    export let data: PageData
+
+    let changeIsTrue = false;
+
+    function inputOnChange () {
+
+        changeIsTrue = true
+    }
 
 
 
@@ -56,8 +67,41 @@ export let form: ActionData;
             <input class = "input" name="adress" />
 
         </div> 
-        <div style="width:100%; border-top: 1px #e9e9e9 solid; height:10px"></div>
+
         <button class="button">Submit</button>
+
+
+
+        <div style="width:100%; border-top: 1px #e9e9e9 solid; height:10px"></div>
+
+        
+        erorr: { form?.error}
+        <form method="post" style = "display: grid; place-items: center" enctype='multipart/form-data' action = "?/image">
+
+            <input name="userId" value={data.user?.id} type="hidden"/>
+
+            <div class = "containIMG">
+                <img class = "iMG"src = {downloadIMG} alt = "img"/>
+                
+                <input class= "inputIMG"
+                
+                class:inputTrue={changeIsTrue}
+                type = "file" name="userPFP" accept="image/*" on:change={inputOnChange}/>
+
+            </div>
+
+
+            <button class = "submitPFP"  on:click={() => alert("Image has been added")} >Upload Image</button>
+
+
+
+
+        </form>
+
+
+
+        <div style="width:100%; border-top: 1px #e9e9e9 solid; height:10px"></div>
+   
        
 
     </form>
@@ -103,6 +147,7 @@ export let form: ActionData;
     .button {
         border: hidden;
         padding: 10px;
+        margin-bottom:10px;
         width: 100%;
         place-self: center;
         border-radius: 5px;
@@ -150,6 +195,80 @@ export let form: ActionData;
 
     .input:hover {
         background-color: #f7f7f7;
+    }
+
+
+    ::-webkit-file-upload-button {
+        display: grid;
+        place-self: end;
+        
+        color: rgba(0, 0, 0, 0);
+        background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(226, 226, 226));
+        border:none;
+        border-bottom: 2px #ccc solid;
+        border-right: 2px #ccc solid;
+        width:100%;
+        height: 80%;
+        border-radius: 10px;
+    }
+
+    ::-webkit-file-upload-button:hover {
+        color: rgba(0, 0, 0, 0);
+        opacity: 0.5;
+        background-image: linear-gradient(to bottom right, rgb(252, 252, 252), rgb(209, 209, 209));
+        border:none;
+        border-bottom: 2px #ccc solid;
+        border-right: 2px #ccc solid;
+    }
+
+    ::-webkit-file-upload-button:valid {
+        color: rgba(0, 0, 0, 0);
+        opacity: 0.5;
+        background-image: linear-gradient(to bottom right,#a8dadc, #1e5670);
+        border:none;
+
+    }
+
+
+    .submitPFP {
+        margin: 10px;
+        border: hidden;
+        padding: 10px;
+        width: 100%;
+        place-self: center;
+        border-radius: 5px;
+        background-color: #a8dadc;
+        color: #1e5670;
+
+    }
+    
+    .submitPFP:disabled {
+        background-color: #ececec;
+        color: #cecece;
+
+    }
+
+    .containIMG {
+    align-content: center;
+        
+    display: flex;
+    height: 100px;
+    /* box-shadow:inset 0px 0px 0px 2px rgb(228, 228, 228); */
+
+    }
+    .iMG {
+    padding: 10px;
+    height: 30px;
+    opacity: 0.4;
+    align-self: center;
+    max-height: 500px;
+    object-fit: contain;
+    
+    }
+
+    .inputTrue { 
+        place-items: center;
+        background-color:hotpink;
     }
 
 

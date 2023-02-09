@@ -28,7 +28,64 @@ export const load: PageServerLoad = async (event) => {
 
 
 export const actions: Actions = {
+
+    image: async (event) => {
+        const form = await event.request.formData(); 
+
+
+        const x = form.get('userPFP') as unknown as Blob;
+        const y = await x.arrayBuffer();
+        const z = Buffer.from(y);
+
+        // console.log(y);
+        // console.log(z);
+
+        // const profileiMG = getFormValue(form, 'userPFP');
+        const user = await loadUser(event.cookies);
+
+        // console.log("TEST TEST TEST TEST --- PFP string name:", profileiMG, "--- TEST TEST TEST TEST --- userId:", user?.id);
+
+
+        if (y.byteLength < 1) {
+            console.log("NO IMAGEFOUND")
+            return{error:true}
+            
+        } else {
+
+        const zaza = await prisma.customer.update({
+            where: {
+                id:user?.id
+            
+             },
+             data: {
+                profilePicture:z
+
+             }
+
+        })
+
+        // console.log(zaza);
+        return {error:false}    
+            
+        }
+
+        
+
+
+    },
+
+
+
+
+
+
     submit: async (event) => {
+
+
+        
+
+
+
         const form = await event.request.formData();
         const user = await loadUser(event.cookies);
         const name = getFormValue(form, 'name');

@@ -33,7 +33,7 @@
 
 </script>
 
-<form method="post" style = "place-items: center" enctype='multipart/form-data'>
+<form method="post" style = "place-items: center" enctype='multipart/form-data' action = "?/image">
 
     <input name="userId" value={data.user?.id} />
 

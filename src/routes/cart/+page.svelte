@@ -8,7 +8,7 @@
     import DeleteButton from "./DeleteButton.svelte";
     import type { CartItem } from "@prisma/client";
     import type { Product } from "@prisma/client";
-
+    import PayButton from "./PayButton.svelte";
     export let data: PageData
 
     let cartItemArr: Array<CartI> = [];
@@ -20,7 +20,13 @@
 
 
     let i = 1;
+    let s = 0;
 
+    cartItemArr.forEach(c => {
+        s += c.product.price*c.quantity
+    });
+
+    let sum = s.toFixed(2) ;
 </script>
 
 
@@ -28,7 +34,7 @@
 
     <div class = "header"> Here are your products, {data.user?.name}!</div>
 
-     <div class = "globalCartGrid">
+    <div class = "globalCartGrid">
 
         <div class = "numberCol">
             <div style = "font-weight: bold">No</div>
@@ -74,11 +80,15 @@
         </div>
 
 
-
-
     </div>
+    
+    {#if cartItemArr[0] == null} 
+        <div></div>
+    {:else} 
 
+    <PayButton value = {data.user?.id} totalSum = {sum}></PayButton>
 
+    {/if}
 
 
 </div>
@@ -115,7 +125,7 @@
     grid-template-columns: max-content 1fr max-content max-content max-content;
     padding: 10px;
     width: 95%;
-
+    border-bottom: 2px #e9e9e9 solid;
 }
 
 .numberCol {

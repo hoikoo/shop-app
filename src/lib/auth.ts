@@ -1,6 +1,7 @@
 import type { Customer, Product } from "@prisma/client";
 import { transformDocument } from "@prisma/client/runtime";
 import type { Cookies } from "@sveltejs/kit";
+
 import { prisma } from "./db";
 
 export async function loadUser(cookies: Cookies) {
@@ -24,7 +25,7 @@ export async function loadUser(cookies: Cookies) {
             city: true,
             postCode: true,
             email: true
-
+            
         }
     });
 

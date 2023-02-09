@@ -7,7 +7,7 @@ export let value: number;
 
 
 
-<form method="post" style="    display: grid; place-self: center;  height: 40px;">
+<form method="post" style="display: grid; place-self: center;  height: 40px;" action = "?/delete">
 
     <input name="cartProdId" value={value} type="hidden" />
     <button class = "button"  on:click={ () => console.log("Product deleted")}>
