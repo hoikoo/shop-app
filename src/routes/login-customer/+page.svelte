@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { error } from "@sveltejs/kit";
+	import ThinCard from "$lib/components/ThinCard.svelte";
+import { error } from "@sveltejs/kit";
     //import { errorPass } from "@sveltejs/kit";
 import type { ActionData } from "./$types";
 
@@ -14,7 +15,7 @@ export let form: ActionData;
 errorPass: {form?.errorPass}  -->
 
 
-<div class = "application">
+<ThinCard>
 
     <div class = "text" style = "font-size: large;">Sign in</div>
 
@@ -54,24 +55,10 @@ errorPass: {form?.errorPass}  -->
         <div >Create new account</div>
     </a>
 
-</div>
-
+</ThinCard>
 
 
 <style>
-
-    .application {
-        display: grid;
-        grid-template-columns: 1fr;
-        vertical-align: top ;     
-        background-color: white;
-        padding: 20px;
-        margin: 7%;
-        border-radius: 5px;
-        place-self: center;
-        font-family: Arial, Helvetica, sans-serif;
-        box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
-    }
 
     .bar{
         display: grid;

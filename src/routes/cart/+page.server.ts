@@ -7,39 +7,27 @@ import { prisma } from "../../lib/db";
 import type { Actions, PageServerLoad } from "./$types";
 
 
-export interface CartI {
-    cartId: number,
-    productId : number,
-    customerId : number,
-    quantity : number,
-    product: Product
- }
-
-
- function getFormValue(data: FormData, key: string): string | null {
+function getFormValue(data: FormData, key: string): string | null {
     return data.get(key) as unknown as string | null
 }
 
 
 export const load: PageServerLoad = async (event) => {
-    const parentData = await event.parent()
+    const { user }= await event.parent()
 
-        const user = await loadUser(event.cookies);
-
-        const b =  await prisma.cartItem.findMany({
-            where: {
-              customerId: user?.id
-            },
-            include: {
-                product: true
-                
-            }
-        })
-    
-        return {
-            bob: b
-
+    const cartItems =  await prisma.cartItem.findMany({
+        where: {
+            customerId: user?.id
+        },
+        include: {
+            product: true
+            
         }
+    })
+
+    return {
+        cartItems
+    }
 };
 
 

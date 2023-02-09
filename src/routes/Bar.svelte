@@ -12,7 +12,6 @@
     import logo from './img/logo.png';
     import cartIMG from './img/cart.png';
     import user from './img/user.png';
-	import { dataset_dev } from 'svelte/internal';
 
 
     let c = false;

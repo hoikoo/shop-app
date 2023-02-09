@@ -1,28 +1,20 @@
 <script lang="ts">
-	import type { CartI } from "./+page.server";
 	import type { PageData } from "./$types";
     import ProductName from "./ProductName.svelte";
     import ProductQuantity from "./ProductQuantity.svelte";
     import ProductNum from "./ProductNum.svelte";
     import ProductPrice from "./ProductPrice.svelte";
     import DeleteButton from "./DeleteButton.svelte";
-    import type { CartItem } from "@prisma/client";
-    import type { Product } from "@prisma/client";
     import PayButton from "./PayButton.svelte";
+	import Card from "$lib/components/Card.svelte";
     export let data: PageData
 
-    let cartItemArr: Array<CartI> = [];
-
-
-         for ( let i = 0; i < data.bob.length ; i++ ) {
-            cartItemArr.push( data.bob[i] ) ;   
-        }
-
+    const {cartItems} = data;
 
     let i = 1;
     let s = 0;
 
-    cartItemArr.forEach(c => {
+    cartItems.forEach(c => {
         s += c.product.price*c.quantity
     });
 
@@ -30,7 +22,7 @@
 </script>
 
 
-<div class = "cartField">
+<Card>
 
     <div class = "header"> Here are your products, {data.user?.name}!</div>
 
@@ -38,14 +30,14 @@
 
         <div class = "numberCol">
             <div style = "font-weight: bold">No</div>
-            {#each  cartItemArr as c, j}
+            {#each  cartItems as c, j}
                 <ProductNum num = {j+i}></ProductNum>
             {/each}
         </div>
 
         <div class = "productCol">
             <div style = "font-weight: bold">Product name</div>
-            {#each  cartItemArr as c}
+            {#each  cartItems as c}
                 <ProductName name = {c.product.title}></ProductName>
             {/each}
 
@@ -53,7 +45,7 @@
 
         <div class = "quantityCol">
             <div style = "font-weight: bold">Quantity</div>
-            {#each  cartItemArr as c}
+            {#each  cartItems as c}
                 <ProductQuantity quantity = {c.quantity}></ProductQuantity>
             {/each}
 
@@ -61,7 +53,7 @@
 
         <div class = "priceCol">
             <div style = "font-weight: bold">Total price</div>
-            {#each  cartItemArr as c}
+            {#each  cartItems as c}
             <ProductPrice price = {c.product.price*c.quantity}></ProductPrice>
             {/each}
             
@@ -71,7 +63,7 @@
         <div class = "deleteCol">
             <div style = "font-weight: bold"> Delete </div>
 
-            {#each cartItemArr as c}
+            {#each cartItems as c}
 
             <DeleteButton value = {c.cartId}></DeleteButton>
 
@@ -82,7 +74,7 @@
 
     </div>
     
-    {#if cartItemArr[0] == null} 
+    {#if cartItems[0] == null} 
         <div></div>
     {:else} 
 
@@ -91,21 +83,10 @@
     {/if}
 
 
-</div>
+</Card>
 
 <style>
 
-.cartField {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    width: 88%;
-    place-self: center;
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
-}
 
 .header {
     width: 88%;

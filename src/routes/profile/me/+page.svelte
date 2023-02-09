@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Card from "$lib/components/Card.svelte";
 	import type { PageData } from "./$types";
      
     import ProfileImage from "./ProfileImage.svelte";
@@ -12,7 +13,7 @@
 </script>
 
 
-<div class = "meField">
+<Card>
 
     <div class = "headWImg"> 
         <ProfileImage userId={data.user?.id ?? 0}></ProfileImage>
@@ -53,7 +54,7 @@
 
 
 
-</div>
+</Card>
 
 <style>
 
@@ -66,20 +67,6 @@
     justify-items: center;
     gap : 30px;
 
-}
-
-
-.meField {
-    display: grid;
-    grid-template-columns: 1fr;
-    place-self: center;
-    width: 88%;
-    gap: 20px;
-    background-color: white;
-    padding: 25px;
-    border-radius: 5px;
-    box-shadow: 10px 10px 1px  rgba(223, 223, 223, 0.3);
-    overflow: hidden;
 }
 
 .info {
