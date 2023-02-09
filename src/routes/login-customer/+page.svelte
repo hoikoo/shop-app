@@ -41,7 +41,7 @@ errorPass: {form?.errorPass}  -->
 
     <div class = "bar" > 
         <p class = "p">Password:</p>
-        <input class = "input" name="password" />
+        <input class = "input" type="password" name="password" />
         
 
     </div> 
