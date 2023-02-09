@@ -21,6 +21,7 @@ export let totalSum = 0;
 <style>
 
 .button {
+    cursor: pointer;
     background-color: rgb(247, 247, 247);
     color: rgba(0, 0, 0, 0.801);
     border:hidden;

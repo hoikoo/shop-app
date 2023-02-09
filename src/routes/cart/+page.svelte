@@ -26,7 +26,7 @@
 	<div class="header">Here are your products, {data.user?.name}!</div>
 
 	<div class="globalCartGrid">
-		<Column headline="No">
+		<Column headline="No" greyText>
 			{#each cartItems as c, j}
 				<ProductNum num={j + i} />
 			{/each}
