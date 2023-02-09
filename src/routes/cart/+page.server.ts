@@ -59,6 +59,17 @@ export const actions: Actions = {
 		const form = await event.request.formData();
 		const user = await loadUser(event.cookies);
 
+        const customerData = await prisma.customer.findUnique({
+            where: {
+                id: user?.id
+            },
+            select: {
+                name:true,
+                surname: true
+            }
+
+        });
+
 		const cartItems = await prisma.cartItem.findMany({
 			where: {
 				customerId: user?.id
@@ -70,7 +81,14 @@ export const actions: Actions = {
 						title: true,
 						price: true
 					}
-				}
+				},
+                // customer : {
+                //     select: {
+                //         id:true,
+                //         name: true,
+                //         surname: true
+                //     }
+                // }
 			}
 		});
 		console.log(cartItems);

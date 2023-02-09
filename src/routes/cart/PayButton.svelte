@@ -35,7 +35,7 @@ export let totalSum = 0;
     
     place-self: end; 
     width: 40%;
-    box-shadow: 0px 6px 1px #e4e4e485 ;
+
 
 }
 
@@ -44,7 +44,7 @@ export let totalSum = 0;
     color: rgb(206, 142, 5);
     border:hidden;
     border-bottom: 1px #ffb341cb solid;
-    box-shadow: 0px 6px 1px #ffc36aa8 ;
+    box-shadow: 0px 2px 1px #ffc36aa8 ;
 
 }
 
@@ -54,7 +54,7 @@ export let totalSum = 0;
     color: rgb(114, 78, 0);
     border:hidden;
     border-bottom: 1px #ffb341 solid;
-    box-shadow: 0px 6px 1px #ffc36acc ;
+    box-shadow: 0px 2px 1px #ffc36acc ;
 }
 
 .inputF{
