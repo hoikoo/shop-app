@@ -2,6 +2,10 @@
 	import Card from "$lib/components/Card.svelte";
 
 
+    function easterEgg() {
+        window.location.assign("https://www.youtube.com/watch?v=3X-iqFRGqbc");
+
+    }
 
 </script>
 
@@ -10,7 +14,7 @@
     <div class = "successfield"> 
         <div class="successtext">★</div>
         <div class="successtext">TRANSACTION SUCCESSFUL!</div> 
-        <div class="successtext">★</div>
+        <div class="successtext" on:click={easterEgg}>★</div>
     </div>
 
 </Card>
@@ -34,4 +38,5 @@
     color: #7cadc4;
 
 }
+
 </style>
