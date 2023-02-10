@@ -14,6 +14,7 @@
     <div class = "successfield"> 
         <div class="successtext">★</div>
         <div class="successtext">TRANSACTION SUCCESSFUL!</div> 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="successtext" on:click={easterEgg}>★</div>
     </div>
 
@@ -27,7 +28,7 @@
     grid-template-columns: 1fr 2fr 1fr;
     padding:15%;
     place-self: center;
-    
+    cursor: default;
 
 }
 
