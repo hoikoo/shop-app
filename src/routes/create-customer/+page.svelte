@@ -59,13 +59,13 @@ export let form: ActionData;
 
         <div class = "bar" > 
             <p class = "p">E-mail:</p>
-            <input class = "input" name="email" />
+            <input class = "input" name="email" type="email"/>
 
         </div> 
 
         <div class = "bar"> 
             <p class = "p">Password:</p>
-            <input class = "input" name="password" />
+            <input class = "input" name="password" type="password"/>
             
         </div> 
 

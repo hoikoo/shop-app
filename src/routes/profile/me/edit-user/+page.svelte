@@ -110,7 +110,7 @@ import type { PageData } from "./$types";
             </div>
 
             {#if changeIsTrue} 
-            <button class = "submitPFP"  on:click={() => alert("Image has been changed")} >Upload Image</button>
+            <button class = "submitPFP"  on:click={() => console.log("Image has been changed")} >Upload Image</button>
             {:else } 
             <button class = "submitPFP"  on:click={() => alert("No")} disabled>Upload Image</button>
             {/if}

@@ -35,7 +35,7 @@ errorPass: {form?.errorPass}  -->
 
     <div class = "bar" style =" border-top: 1px #e9e9e9 solid;"> 
         <p class = "p">E-mail:</p>
-        <input class = "input" name="email" />
+        <input class = "input" name="email" type="email"/>
 
     </div> 
 

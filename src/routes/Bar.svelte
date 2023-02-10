@@ -8,6 +8,8 @@
 	export let checkUser = false;
 	export let userActive = false;
 
+
+    import user from "./img/user.png";
 	import logo from './img/logo.png';
 	import cartIMG from './img/cart.png';
 
