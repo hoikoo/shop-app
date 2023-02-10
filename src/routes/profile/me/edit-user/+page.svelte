@@ -22,61 +22,79 @@ import type { PageData } from "./$types";
 
 </script>
 
-
+<div class = "thinCardGrid">
 <!-- error: {form?.error}   -->
-<ThinCard>
+    <ThinCard>
 
 
-    <div class = "text" style="font-size: large;">Edit your profile</div>
+        <div class = "text" style="font-size: large;">Edit your profile information</div>
 
-    {#if form?.error==true} 
-    <p class = "p" style="place-self: center ;  color:red">Please fill in all entries</p>
-    {/if}
+        {#if form?.error==true} 
+        <p class = "p" style="place-self: center ;  color:red">Please fill in all entries</p>
+        {/if}
 
-    {#if form?.error==false  } 
-    <p class = "p" style="place-self: center ;  color:green">Information updated!</p>
-    {/if}
 
-    <form method="post"  action ="?/submit">
+        <form method="post"  action ="?/submit">
 
-        <div class = "bar" style="border-top: 1px #e9e9e9 solid;"> 
-            <p class = "p">Name:</p>
-            <input class = "input" name="name" />
+            <div class = "bar" style="border-top: 1px #e9e9e9 solid;"> 
+                <p class = "p">Name:</p>
+                <input class = "input" name="name" />
 
-        </div>    
+            </div>    
 
-        <div class = "bar" >
-            <p class = "p">Surname:</p>
-            <input class = "input" name = "surname" />
+            <div class = "bar" >
+                <p class = "p">Surname:</p>
+                <input class = "input" name = "surname" />
 
-        </div> 
+            </div> 
 
-        <div class = "bar" > 
-            <p class = "p">City:</p>
-            <input class = "input" name = "city" />
+            <div class = "bar" > 
+                <p class = "p">City:</p>
+                <input class = "input" name = "city" />
 
-        </div> 
+            </div> 
 
-        <div class = "bar" > 
-            <p class = "p">Post code:</p>
-            <input class = "input" name="postcode" />
+            <div class = "bar" > 
+                <p class = "p">Post code:</p>
+                <input class = "input" name="postcode" />
 
-        </div> 
+            </div> 
 
-        <div class = "bar" > 
-            <p class = "p">Adress:</p>
-            <input class = "input" name="adress" />
+            <div class = "bar" > 
+                <p class = "p">Adress:</p>
+                <input class = "input" name="adress" />
 
-        </div> 
+            </div> 
 
-        <button class="button">Submit</button>
+            <button class="button">Submit</button>
 
 
 
-        <div style="width:100%; border-top: 1px #e9e9e9 solid; height:10px"></div>
+            <div style="width:100%; border-top: 1px #e9e9e9 solid; height:10px"></div>
 
+            
+
+    
         
-        erorr: { form?.error}
+
+        </form>
+
+        <form method="post" action ="?/cancel">
+            
+            <button class="button2">Cancel</button>
+        </form>
+
+
+    </ThinCard>
+
+
+    <ThinCard>
+        <div class = "text" style="font-size: large;">Edit your profile picture</div>
+
+        {#if form?.error==false  } 
+        <p class = "p" style="place-self: center ;  color:green">Information updated!</p>
+        {/if}
+
         <form method="post" style = "display: grid; place-items: center" enctype='multipart/form-data' action = "?/image">
 
             <input name="userId" value={data.user?.id} type="hidden"/>
@@ -91,31 +109,47 @@ import type { PageData } from "./$types";
 
             </div>
 
-
-            <button class = "submitPFP"  on:click={() => alert("Image has been added")} >Upload Image</button>
-
-
-
-
+            {#if changeIsTrue} 
+            <button class = "submitPFP"  on:click={() => alert("Image has been changed")} >Upload Image</button>
+            {:else } 
+            <button class = "submitPFP"  on:click={() => alert("No")} disabled>Upload Image</button>
+            {/if}
         </form>
 
 
 
         <div style="width:100%; border-top: 1px #e9e9e9 solid; height:10px"></div>
-   
-       
-
-    </form>
-
-    <form method="post" action ="?/cancel">
-        
-        <button class="button2">Cancel changes</button>
-    </form>
 
 
-</ThinCard>
+
+        <form method="post" action ="?/cancel">
+            <button class="button2">Cancel</button>
+        </form>
+    </ThinCard>
+
+</div>
+
+
+
+
 
 <style>
+
+    .thinCardGrid {
+        padding: 2%;
+        display: grid;
+        width:60%;
+        grid-auto-flow: column;
+        grid-template-columns: 1fr 1fr;
+        gap:2%;
+        place-self: center
+
+    }
+
+
+
+
+
 
     .bar{
         display: grid;
@@ -147,6 +181,8 @@ import type { PageData } from "./$types";
         background-color: rgb(170, 227, 230);
 
     }
+
+    
 
     button:active {
         cursor: pointer;
@@ -191,32 +227,22 @@ import type { PageData } from "./$types";
         place-self: end;
         
         color: rgba(0, 0, 0, 0);
-        background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(226, 226, 226));
+        background-color: rgba(0, 0, 0, 0.048);
         border:none;
-        border-bottom: 2px #ccc solid;
-        border-right: 2px #ccc solid;
+        border-bottom: 2px rgba(0, 0, 0, 0.2) solid;
+        border-right: 2px rgba(0, 0, 0, 0.2) solid;
         width:100%;
-        height: 80%;
+        height: 100%;
         border-radius: 10px;
     }
 
     ::-webkit-file-upload-button:hover {
         color: rgba(0, 0, 0, 0);
         opacity: 0.5;
-        background-image: linear-gradient(to bottom right, rgb(252, 252, 252), rgb(209, 209, 209));
         border:none;
-        border-bottom: 2px #ccc solid;
-        border-right: 2px #ccc solid;
+        border-bottom: 2px rgba(0, 0, 0, 0.2) solid;
+        border-right: 2px rgba(0, 0, 0, 0.2) solid;
     }
-
-    ::-webkit-file-upload-button:valid {
-        color: rgba(0, 0, 0, 0);
-        opacity: 0.5;
-        background-image: linear-gradient(to bottom right,#a8dadc, #1e5670);
-        border:none;
-
-    }
-
 
     .submitPFP {
         margin: 10px;
@@ -230,10 +256,19 @@ import type { PageData } from "./$types";
 
     }
     
+    .submitPFP:hover{
+        cursor: pointer;
+        background-color: rgb(170, 227, 230);
+
+
+    }
+
+
     .submitPFP:disabled {
         background-color: #ececec;
         color: #cecece;
-
+        opacity: 1;
+        cursor:default;
     }
 
     .containIMG {
@@ -255,8 +290,9 @@ import type { PageData } from "./$types";
     }
 
     .inputTrue { 
+        border-radius: 10px;
         place-items: center;
-        background-color:hotpink;
+        background-color:rgb(196, 255, 204);
     }
 
 
