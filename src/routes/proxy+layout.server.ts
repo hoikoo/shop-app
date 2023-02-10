@@ -1,11 +1,8 @@
-// @ts-nocheck
-import { loadUser } from "$lib/auth";
-import type { LayoutServerLoad } from "./$types";
+import { loadUser } from '$lib/auth';
+import type { LayoutServerLoad } from './$types';
 
 export const load = async (event: Parameters<LayoutServerLoad>[0]) => {
-
-    return {
-        user: loadUser(event.cookies),
-        //producc: loadProd(event.)
-    };
+	return {
+		user: loadUser(event.cookies)
+	};
 };

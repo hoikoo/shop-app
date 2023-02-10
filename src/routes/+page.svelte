@@ -1,91 +1,73 @@
 <script lang="ts">
-    import ProductS from "./ProductS.svelte";
-    import Bar from "./Bar.svelte";
-	import type { PageData } from "./$types"; /// same name - cannot rename in $types
-	// import type { ProductI } from "./+page.server";
-    import type { Product } from "@prisma/client";
+	import ProductS from './ProductS.svelte';
+	import Bar from './Bar.svelte';
+	import type { PageData } from './$types';
+	import type { Product } from '@prisma/client';
 
-    export let data: PageData
+	export let data: PageData;
 
-    let highlightProdduct: Array<Product> = [] ;
-    let restProdduct: Array<Product> = [] ;
-    
-        
-    for ( let i = 0; i < data.products.length ; i++ ) {
-        if (i >= 3) {
-            restProdduct.push( data.products[i] ) ;
-        } else {
-            highlightProdduct.push( data.products[i] )  ;
-        }
+	let highlightProdduct: Array<Product> = [];
+	let restProdduct: Array<Product> = [];
 
-    } 
-
-
-// console.log(highlightProdduct, "---------IT DOES FETCH IS IS RIGHT ?????????---------");
-
+	for (let i = 0; i < data.products.length; i++) {
+		if (i >= 3) {
+			restProdduct.push(data.products[i]);
+		} else {
+			highlightProdduct.push(data.products[i]);
+		}
+	}
 </script>
 
-    <div class="container2">
-        {#each highlightProdduct as p}
-            <ProductS product = {p}></ProductS>
-        
-        {/each}
+<div class="container2">
+	{#each highlightProdduct as p}
+		<ProductS product={p} />
+	{/each}
+</div>
 
-    </div>
-    
-    <div class="container1">
-        <Bar blueTrue = {true} text = "BUY NOW AND GET FREE SHIPPING" ></Bar>
-    </div>
+<div class="container1">
+	<Bar blueTrue={true} text="BUY NOW AND GET FREE SHIPPING" />
+</div>
 
-    <div class="main">
-        <div class = "dataAllProd">
-            {#each restProdduct as p}
-                <ProductS product = {p}></ProductS>
-
-            {/each}
-
-        </div>
-
-    </div>
+<div class="main">
+	<div class="dataAllProd">
+		{#each restProdduct as p}
+			<ProductS product={p} />
+		{/each}
+	</div>
+</div>
 
 <style>
+	.dataAllProd {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		column-gap: 3%;
+		row-gap: 25px;
+		width: 100%;
+	}
 
-.dataAllProd {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
-    column-gap: 3%;
-    row-gap: 25px;
-    width: 100%;
+	.container1 {
+		display: flex;
+		justify-content: space-around;
+	}
 
-}
+	.container2 {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 2%;
+		margin: 4%;
+		aspect-ratio: 3/1;
+	}
 
-.container1 {
-    display: flex; 
-    justify-content: space-around;
-    
-} 
+	.container1,
+	.container2 {
+		padding: 10px;
+	}
 
-.container2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    gap: 2%;
-    margin: 4%;
-    aspect-ratio: 3/1;
-    
-} 
-
-.container1 , .container2 {
-    padding: 10px;    
-
-} 
-
-.main {
-    display: flex;
-    place-self: center;
-    place-content: center;
-    width: 90%;
-    padding: 4%;
-    
-}
-
+	.main {
+		display: flex;
+		place-self: center;
+		place-content: center;
+		width: 90%;
+		padding: 4%;
+	}
 </style>
