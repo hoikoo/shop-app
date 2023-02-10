@@ -59,16 +59,15 @@ export const actions: Actions = {
 		const form = await event.request.formData();
 		const user = await loadUser(event.cookies);
 
-        const customerData = await prisma.customer.findUnique({
-            where: {
-                id: user?.id
-            },
-            select: {
-                name:true,
-                surname: true
-            }
-
-        });
+		const customerData = await prisma.customer.findUnique({
+			where: {
+				id: user?.id
+			},
+			select: {
+				name: true,
+				surname: true
+			}
+		});
 
 		const cartItems = await prisma.cartItem.findMany({
 			where: {
@@ -81,24 +80,31 @@ export const actions: Actions = {
 						title: true,
 						price: true
 					}
-				},
-                // customer : {
-                //     select: {
-                //         id:true,
-                //         name: true,
-                //         surname: true
-                //     }
-                // }
+				}
+				// customer : {
+				//     select: {
+				//         id:true,
+				//         name: true,
+				//         surname: true
+				//     }
+				// }
 			}
 		});
 		console.log(cartItems);
 
-		fetch(env.HOOK_URL, {
+		await fetch(env.HOOK_URL, {
 			method: 'post',
 			headers: {
 				'content-type': 'application/json;charset=UTF-8'
 			},
-			body: JSON.stringify(cartItems)
+			body: JSON.stringify({
+				user: {
+					id: user?.id,
+					name: user?.name,
+					surname: user?.surname
+				},
+				cartItems: cartItems
+			})
 		});
 
 		const payFor = await prisma.cartItem.deleteMany({
@@ -107,6 +113,6 @@ export const actions: Actions = {
 			}
 		});
 
-        throw redirect(302, '/cart/success');
+		throw redirect(302, '/cart/success');
 	}
 };
