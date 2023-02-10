@@ -1,28 +1,7 @@
 import type { Actions, PageServerLoad } from './$types';
-// import type { Product } from '@prisma/client';
-// import type { CartItem } from '@prisma/client';
 import { prisma } from '../../../lib/db';
 import { loadUser } from '$lib/auth';
 import { redirect } from '@sveltejs/kit';
-
-// interface Rating {
-// 	rate: number;
-// 	count: number;
-// }
-
-// export interface ProductI {
-// 	id: number;
-// 	title: string;
-// 	price: number;
-// 	description: string;
-// 	category: string;
-// 	image: string;
-// 	rating: Rating;
-// }
-
-// export interface productGetId {
-// 	id: number;
-// }
 
 export const load: PageServerLoad = async (event) => {
 	return {
@@ -38,7 +17,6 @@ export const load: PageServerLoad = async (event) => {
 export const actions: Actions = {
 	default: async (event) => {
 		const redirectToCart = await prisma.$transaction(async (p) => {
-			// const form = await event.request.formData();
 			const user = await loadUser(event.cookies);
 
 			const prodInCartTrue = await prisma.cartItem.findFirst({

@@ -1,6 +1,3 @@
-import type { Customer } from '@prisma/client';
-import type { CartItem } from '@prisma/client';
-import type { Product } from '@prisma/client';
 import { loadUser } from '$lib/auth';
 import { redirect } from '@sveltejs/kit';
 import { prisma } from '../../lib/db';
@@ -37,7 +34,7 @@ export const actions: Actions = {
 			if (getcartID == null) {
 				return false;
 			} else {
-				const deleteItemCart = await p.cartItem.delete({
+				await p.cartItem.delete({
 					where: {
 						cartId: parseInt(getcartID)
 					}
@@ -47,19 +44,16 @@ export const actions: Actions = {
 		});
 
 		if (itemIsDeleted) {
-			console.log('Product has been deleted');
 			throw redirect(301, '/cart');
 		} else {
-			console.log('Unexpected error');
 			throw redirect(301, '/');
 		}
 	},
 
 	pay: async (event) => {
-		const form = await event.request.formData();
 		const user = await loadUser(event.cookies);
 
-		const customerData = await prisma.customer.findUnique({
+		await prisma.customer.findUnique({
 			where: {
 				id: user?.id
 			},
@@ -81,13 +75,6 @@ export const actions: Actions = {
 						price: true
 					}
 				}
-				// customer : {
-				//     select: {
-				//         id:true,
-				//         name: true,
-				//         surname: true
-				//     }
-				// }
 			}
 		});
 		console.log(cartItems);
@@ -107,7 +94,7 @@ export const actions: Actions = {
 			})
 		});
 
-		const payFor = await prisma.cartItem.deleteMany({
+		await prisma.cartItem.deleteMany({
 			where: {
 				customerId: user?.id
 			}

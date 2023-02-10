@@ -8,6 +8,7 @@
 	import PayButton from './PayButton.svelte';
 	import Card from '$lib/components/Card.svelte';
 	import Column from '$lib/components/Column.svelte';
+	
 	export let data: PageData;
 
 	const { cartItems } = data;
@@ -19,7 +20,7 @@
 		s += c.product.price * c.quantity;
 	});
 
-	let sum = s.toFixed(2);
+	let sum = parseInt(s.toFixed(2));
 </script>
 
 <Card>
@@ -60,7 +61,7 @@
 	{#if cartItems[0] == null}
 		<div />
 	{:else}
-		<PayButton value={data.user?.id} totalSum={sum} />
+		<PayButton value={data.user?.id ?? 0} totalSum={sum} />
 	{/if}
 </Card>
 
